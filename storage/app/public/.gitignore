@@ -1,6 +1,2 @@
 *
-!files/
-!icons/
-!tmp/
-!users/
-!web/
+!.gitignore
