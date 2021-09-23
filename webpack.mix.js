@@ -11,7 +11,10 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+mix.combine([
+        'resources/css/normalize.css',
+        'resources/css/base.css',
+        'resources/css/components/*',
+        'resources/css/views/*'
+    ], 'public/css/app.css')
+    .version();
