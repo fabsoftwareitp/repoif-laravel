@@ -14,7 +14,6 @@
         <meta property="og:title" content="{{ $pageOgTitle }}">
         <meta property="og:description" content="{{ $pageOgDescription }}">
         <meta property="og:image" content="{{ $pageOgImageUrl }}">
-        <meta property="og:url" content="{{ $pageOgUrl }}">
         <meta name="twitter:card" content="summary_large_image">
 
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset("img/favicons/apple-touch-icon.png") }}">
@@ -34,7 +33,13 @@
     </head>
 
     <body>
-        {{ $slot }}
+        <div class="app">
+            <div class="header"></div>
+            <div class="body">
+                {{ $slot }}
+            </div>
+            <x-footer></x-footer>
+        </div>
     </body>
 
 </html>

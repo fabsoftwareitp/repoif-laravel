@@ -16,8 +16,7 @@ class Layout extends Component
         public $pageDescription,
         public $pageOgTitle,
         public $pageOgDescription,
-        public $pageOgImageUrl,
-        public $pageOgUrl
+        public $pageOgImageUrl
     ) {}
 
     /**
