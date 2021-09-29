@@ -1,0 +1,25 @@
+.presentation {
+    max-width: 500px;
+}
+
+.presentation__text {
+    margin-top: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 40px;
+    color: #fff;
+}
+
+.presentation__text--first {
+    margin-top: 10px;
+}
+
+.presentation__highlight {
+    color: #00EC7E;
+}
+
+@media screen and (max-width: 1000px) {
+    .presentation {
+        display: none;
+    }
+}

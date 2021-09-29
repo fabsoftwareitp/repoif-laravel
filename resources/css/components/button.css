@@ -1,0 +1,26 @@
+.button {
+    width: 130px;
+    padding: 7px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #00EC7E;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #222429;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #00FF88;
+}
+
+.button--full-width {
+    width: 100%;
+}
+
+.button__text {
+    margin-left: 5px;
+}

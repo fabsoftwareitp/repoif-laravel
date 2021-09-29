@@ -1,0 +1,15 @@
+.form-group {
+    margin-top: 15px;
+}
+
+.form-group--first {
+    margin-top: 0;
+}
+
+.form-group__input-label {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 5px;
+}

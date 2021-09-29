@@ -1,0 +1,38 @@
+.input-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #282B30;
+}
+
+.input {
+    padding: 11px 15px;
+    width: 100%;
+    font-size: 1.4rem;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    outline: none;
+    line-height: 0;
+}
+
+.input::placeholder {
+    color: #EFEFEF;
+}
+
+.password-eye-btn {
+    height: fit-content;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    margin: 0 10px;
+    line-height: 0;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.password-eye-btn:hover {
+    background-color: #40464E;
+}

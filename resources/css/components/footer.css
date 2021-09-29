@@ -40,7 +40,7 @@
     color: #00EC7E;
 }
 
-@media screen and (max-width: 865px) {
+@media screen and (max-width: 750px) {
     .footer__container {
         flex-direction: column;
         padding-top: 20px;
@@ -64,7 +64,7 @@
     }
 }
 
-@media screen and (max-width: 615px) {
+@media screen and (max-width: 490px) {
     .footer__navbar {
         flex-direction: column;
         align-items: center;

@@ -13,4 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/register', 'auth.register');
+Route::view('/', 'home')->middleware("verified");
+
+require __DIR__.'/auth.php';

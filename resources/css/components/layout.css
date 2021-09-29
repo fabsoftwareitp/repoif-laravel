@@ -1,12 +1,14 @@
 .app {
-    height: 100%;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .body {
-    display: grid;
-    place-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 30px 0;
     background-color: #282B30;
+    flex-grow: 1;
 }

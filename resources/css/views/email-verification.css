@@ -1,0 +1,24 @@
+.email-verification {
+    display: flex;
+    justify-content: center;
+}
+
+.email-verification__container {
+    max-width: 410px;
+    padding: 20px;
+    background-color: #373C43;
+    border-radius: 10px;
+}
+
+.email-verification__text {
+    font-size: 1.4rem;
+    color: #fff;
+    line-height: 20px;
+}
+
+.email-verification__message {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    color: #00EC7E;
+    line-height: 20px;
+}

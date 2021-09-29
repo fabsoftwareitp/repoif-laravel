@@ -1,9 +1,20 @@
+@props([
+    "pageTitle",
+    "pageDescription" => "",
+    "pageOgTitle" => "",
+    "pageOgDescription" => "",
+    "pageOgImageUrl" => "",
+    "pageRobots" => "index, follow"
+])
+
 <!DOCTYPE html>
 
 <html lang="pt-BR">
 
     <head>
         <meta charset="UTF-8">
+
+        <meta name="robots" content="{{ $pageRobots }}">
 
         <title>{{ $pageTitle }}</title>
         <meta name="description" content="{{ $pageDescription }}">
@@ -30,6 +41,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <link rel="stylesheet" href="{{ asset(mix("css/app.css")) }}">
+        <script defer src="https://unpkg.com/alpinejs@3.4.1/dist/cdn.min.js"></script>
     </head>
 
     <body>

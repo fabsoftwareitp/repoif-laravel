@@ -1,0 +1,22 @@
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login__message {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    color: #00EC7E;
+    line-height: 20px;
+}
+
+.login .form {
+    margin-left: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+    .login .form {
+        margin-left: 0;
+    }
+}
