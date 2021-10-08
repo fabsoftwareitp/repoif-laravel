@@ -1,0 +1,15 @@
+.notifications {
+    margin-right: 20px;
+}
+
+.notifications__button {
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.notifications__button:hover {
+    background-color: #3D424A;
+}

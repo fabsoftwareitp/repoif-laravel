@@ -1,0 +1,131 @@
+.profile-card {
+    padding: 15px;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    background-color: #3D424A;
+    border-radius: 10px;
+}
+
+.profile-card__photo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-card__info {
+    margin-left: 10px;
+}
+
+.profile-card__user-name {
+    margin: 10px 0 5px 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #00EC7E;
+}
+
+.profile-card__info-container {
+    display: flex;
+    align-items: center;
+}
+
+.profile-card__info-container--email {
+    margin-top: 5px;
+}
+
+.profile-card__info-container--email svg {
+    width: 22px;
+    height: 14px;
+}
+
+.profile-card__info-container--email svg * {
+    fill: #EFEFEF;
+    stroke: #EFEFEF;
+}
+
+.profile-card__info-data {
+    margin-left: 5px;
+    font-size: 1.4rem;
+    color: #EFEFEF;
+    line-height: 0;
+    word-break: break-all;
+}
+
+.profile-card__info-data--email {
+    line-height: 10px;
+}
+
+.profile-card__description {
+    margin-top: 15px;
+    font-size: 1.4rem;
+    color: #fff;
+    line-height: 20px;
+}
+
+.profile-card__actions {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profile-card__actions > .button {
+    margin-left: 20px;
+}
+
+.profile-card__actions > .button:first-child {
+    margin-left: 0;
+}
+
+.profile-card__actions .button svg,
+.profile-card__actions .button img {
+    width: 21px;
+    height: 18px;
+}
+
+.profile-card__actions .button__text {
+    font-size: 1.4rem;
+}
+
+.profile-card__status {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    color: #00EC7E;
+    line-height: 20px;
+}
+
+@media screen and (max-width: 590px) {
+    .profile-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-card__info {
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-card__user-name {
+        text-align: center;
+    }
+
+    .profile-card__actions {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .profile-card__actions .button {
+        margin-top: 20px;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .profile-card__actions .button:first-child {
+        margin-top: 0;
+    }
+}

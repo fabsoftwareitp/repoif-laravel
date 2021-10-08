@@ -14,6 +14,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Hero", sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: #00EC7E transparent;
 }
 
 html {
@@ -29,4 +31,17 @@ html, body {
     max-width: 1920px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #00EC7E;
+    border-radius: 5px;
 }

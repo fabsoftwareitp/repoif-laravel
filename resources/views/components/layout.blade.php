@@ -42,11 +42,13 @@
 
         <link rel="stylesheet" href="{{ asset(mix("css/app.css")) }}">
         <script defer src="https://unpkg.com/alpinejs@3.4.1/dist/cdn.min.js"></script>
+
+        @stack("additional")
     </head>
 
     <body>
         <div class="app">
-            <div class="header"></div>
+            <x-header></x-header>
             <div class="body">
                 {{ $slot }}
             </div>

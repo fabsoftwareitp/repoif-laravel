@@ -1,0 +1,31 @@
+.access-links {
+    display: flex;
+    align-items: center;
+}
+
+.access-links .button:last-child {
+    margin-left: 20px;
+}
+
+.user-actions__publish-button {
+    display: none;
+    margin-right: 20px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 640px) {
+    .user-actions__publish-button {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 355px) {
+    .access-links,
+    .actions {
+        margin-top: 20px;
+    }
+}

@@ -1,0 +1,78 @@
+.image-input__input-file {
+    display: none;
+}
+
+.image-input__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-input__picker {
+    position: relative;
+}
+
+label.image-input__photo-container {
+    display: block;
+    line-height: 0;
+    cursor: pointer;
+}
+
+.image-input__photo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.image-input__delete-photo-btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: #FF4D58;
+    cursor: pointer;
+}
+
+.image-input__delete-photo-btn:hover {
+    background-color: #F93743;
+}
+
+.image-input__delete-photo-icon {
+    width: 18px;
+    height: 20px;
+}
+
+.image-input__delete-photo-icon * {
+    fill: #fff;
+    stroke: #fff;
+}
+
+.image-input__label {
+    margin-top: 5px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.image-input__info {
+    margin-top: 5px;
+    font-size: 1.4rem;
+    color: #EFEFEF;
+    line-height: 20px;
+    text-align: center;
+}
+
+.image-input__info-highlight {
+    color: #00EC7E;
+}
+
+.image-input__info--error {
+    color: #FF4D58;
+}

@@ -1,6 +1,6 @@
 .button {
     width: 130px;
-    padding: 7px 0;
+    height: 38px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,6 +13,10 @@
     cursor: pointer;
 }
 
+a.button {
+    text-decoration: none;
+}
+
 .button:hover {
     background-color: #00FF88;
 }
@@ -23,4 +27,69 @@
 
 .button__text {
     margin-left: 5px;
+}
+
+.button--red {
+    color: #fff;
+    background-color: #FF4D58;
+}
+
+.button--red:hover {
+    background-color: #F93743;
+}
+
+.button--outlined {
+    background-color: transparent;
+    color: #00EC7E;
+    border: 2px solid #00EC7E;
+}
+
+.button--outlined svg *:not([fill=none]) {
+    fill: #00EC7E;
+}
+
+.button--outlined svg *[stroke] {
+    stroke: #00EC7E;
+}
+
+.button--outlined:hover {
+    background-color: transparent;
+    color: #00FF88;
+    border: 2px solid #00FF88;
+}
+
+.button--outlined:hover svg *:not([fill=none]) {
+    fill: #00FF88;
+}
+
+.button--outlined:hover svg *[stroke] {
+    stroke: #00FF88;
+}
+
+.button--outlined-red {
+    background-color: transparent;
+    color: #FF4D58;
+    border: 2px solid #FF4D58;
+}
+
+.button--outlined-red svg *:not([fill=none]) {
+    fill: #FF4D58;
+}
+
+.button--outlined-red svg *[stroke] {
+    stroke: #FF4D58;
+}
+
+.button--outlined-red:hover {
+    background-color: transparent;
+    color: #F93743;
+    border: 2px solid #F93743;
+}
+
+.button--outlined-red:hover svg *:not([fill=none]) {
+    fill: #F93743;
+}
+
+.button--outlined-red:hover svg *[stroke] {
+    stroke: #F93743;
 }

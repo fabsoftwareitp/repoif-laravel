@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\URL;
 
 class ChangePasswordController extends Controller
 {
@@ -31,13 +32,14 @@ class ChangePasswordController extends Controller
     {
         $request->validate([
             'current_password' => ['required', 'min:6', 'current_password'],
-            'new_password' => ['required', 'confirmed', 'min:6'],
+            'new_password' => ['required', 'confirmed', 'min:6', 'max:255'],
         ]);
 
         Auth::user()->forceFill([
             'password' => Hash::make($request->new_password),
         ])->save();
 
-        return back()->with('status', 'Senha alterada com sucesso.');
+        return redirect(URL::route('profile.show', ['user' => Auth::user()]))
+            ->with('status', 'Senha alterada com sucesso.');
     }
 }

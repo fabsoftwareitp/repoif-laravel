@@ -23,6 +23,10 @@
     text-align: center;
 }
 
+.form__title-highlight {
+    color: #00EC7E;
+}
+
 .form__info {
     margin-top: 20px;
     font-size: 1.4rem;

@@ -1,5 +1,42 @@
 .header {
-    height: 80px;
     background-color: #222429;
-    flex-shrink: 0;
+}
+
+.header__container {
+    padding-top: 22px;
+    padding-bottom: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header__publish-container {
+    display: flex;
+    align-items: center;
+}
+
+.header__publish-container .button {
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 640px) {
+    .header__publish-container .button {
+        display: none;
+    }
+
+    .header .button {
+        width: fit-content;
+        padding: 5px 10px;
+    }
+
+    .header .button__text {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 355px) {
+    .header__container {
+        flex-direction: column;
+    }
 }

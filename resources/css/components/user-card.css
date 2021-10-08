@@ -1,0 +1,90 @@
+.user-card {
+    position: relative;
+}
+
+.user-card__user {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.user-card__user:hover,
+.user-card__user--active {
+    background-color: #3D424A;
+}
+
+.user-card__photo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.user-card__name {
+    margin-left: 5px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #00EC7E;
+}
+
+.user-card__menu {
+    width: 200px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    padding-top: 10px;
+}
+
+.user-card__menu-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #2E333A;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.user-card__menu-item {
+    width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.user-card__menu-item:first-child {
+    padding-top: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.user-card__menu-item:last-child {
+    padding-bottom: 10px;
+    border-radius: 0 0 10px 10px;
+}
+
+.user-card__menu-item:hover {
+    background-color: #3D424A;
+}
+
+.user-card__menu-item-image {
+    width: 25px;
+    height: 25px;
+}
+
+.user-card__menu-item-text {
+    margin-left: 5px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+@media screen and (max-width: 640px) {
+    .user-card__name {
+        display: none;
+    }
+}

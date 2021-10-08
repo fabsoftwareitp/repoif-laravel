@@ -27,10 +27,6 @@
                 inputType="password"
             ></x-form-group>
 
-            @if (session('status'))
-                <p class="change-password__message">{{ session('status') }}</p>
-            @endif
-
             <x-button
                 class="button--full-width"
                 text="Alterar senha"
