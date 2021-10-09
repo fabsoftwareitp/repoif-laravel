@@ -26,10 +26,11 @@
 
 .main-search__input::placeholder {
     color: #EFEFEF;
+    opacity: 1;
 }
 
 .main-search__button {
-    height: fit-content;
+    height: auto;
     padding: 5px;
     background-color: transparent;
     border: none;

@@ -674,7 +674,7 @@ a.button {
     }
 
     .header .button {
-        width: fit-content;
+        width: auto;
         padding: 5px 10px;
     }
 
@@ -796,10 +796,11 @@ label.image-input__photo-container {
 
 .input::placeholder {
     color: #EFEFEF;
+    opacity: 1;
 }
 
 .password-eye-btn {
-    height: fit-content;
+    height: auto;
     padding: 5px;
     background-color: transparent;
     border: none;
@@ -861,10 +862,11 @@ label.image-input__photo-container {
 
 .main-search__input::placeholder {
     color: #EFEFEF;
+    opacity: 1;
 }
 
 .main-search__button {
-    height: fit-content;
+    height: auto;
     padding: 5px;
     background-color: transparent;
     border: none;
@@ -912,7 +914,7 @@ label.image-input__photo-container {
 
 .modal__close-button {
     padding: 5px;
-    width: fit-content;
+    width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1135,6 +1137,7 @@ label.image-input__photo-container {
 
 .text-area::placeholder {
     color: #EFEFEF;
+    opacity: 1;
 }
 
 .text-area__counter {

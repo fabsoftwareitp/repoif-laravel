@@ -25,6 +25,7 @@
 
 .text-area::placeholder {
     color: #EFEFEF;
+    opacity: 1;
 }
 
 .text-area__counter {

@@ -22,7 +22,7 @@
 
 .modal__close-button {
     padding: 5px;
-    width: fit-content;
+    width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
