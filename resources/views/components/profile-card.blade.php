@@ -22,7 +22,7 @@
 
         <div class="profile-card__info-container">
             @php echo file_get_contents(public_path('img/icons/views-icon.svg')) @endphp
-            <span class="profile-card__info-data">{{ $user->profile_views }}</span>
+            <span class="profile-card__info-data">{{ number_format($user->profile_views, 0, ',', '.') }}</span>
         </div>
 
         <div class="profile-card__info-container profile-card__info-container--email">
