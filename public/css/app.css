@@ -377,10 +377,16 @@ html, body {
 }
 
 .container {
-    width: 100vw;
+    width: 100%;
     max-width: 1920px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -394,6 +400,10 @@ html, body {
 ::-webkit-scrollbar-thumb {
     background-color: #00EC7E;
     border-radius: 5px;
+}
+
+[x-cloak] {
+    display: none !important;
 }
 
 .button {
@@ -590,9 +600,13 @@ a.button {
     margin-bottom: 5px;
 }
 
+.form-group__input-label-highlight {
+    color: #00EC7E;
+}
+
 .form {
     width: 410px;
-    max-width: 100vw;
+    max-width: 100%;
     padding: 20px;
     background-color: #373C43;
     border-radius: 10px;
@@ -766,6 +780,33 @@ label.image-input__photo-container {
 
 .image-input__info--error {
     color: #FF4D58;
+}
+
+.input-file__input {
+    display: none;
+}
+
+.input-file__label {
+    display: block;
+    padding: 11px 60px 11px 15px;
+    background: url(/img/icons/input-file-icon.svg) no-repeat calc(100% - 15px) center;
+    background-color: #282B30;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.input-file__filename,
+.input-file__placeholder {
+    display: block;
+    font-size: 1.4rem;
+}
+
+.input-file__filename {
+    color: #fff;
+}
+
+.input-file__placeholder {
+    color: #EFEFEF;
 }
 
 .input-validation-error {
@@ -1110,6 +1151,24 @@ label.image-input__photo-container {
     }
 }
 
+.select {
+    appearance: none;
+    background: url(/img/icons/select-arrow-icon.svg) no-repeat calc(100% - 15px) center;
+    padding: 11px 40px 11px 15px;
+    width: 100%;
+    background-color: #282B30;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1.4rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.select__option {
+    background-color: #2E333A;
+}
+
 .text-area-container {
     width: 100%;
     padding: 10px;
@@ -1354,6 +1413,15 @@ label.image-input__photo-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.project-create {
+    display: flex;
+    justify-content: center;
+}
+
+.project-create .form {
+    width: 600px;
 }
 
 .register {

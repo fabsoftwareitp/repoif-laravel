@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CompleteProfileController;
 use App\Http\Controllers\ProfileController;
 
@@ -15,21 +16,27 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::view("/", "project.index")->name("project.index");
+Route::get("/", [ProjectController::class, "index"])
+    ->name("project.index");
+
+Route::get("/projetos/publicar", [ProjectController::class, "create"])
+    ->middleware(["auth", "verified"])
+    ->name("project.create");
+
 
 Route::get("/perfil/completar", [CompleteProfileController::class, "create"])
-    ->middleware(["verified", "user.not.completed.profile"])
+    ->middleware(["auth", "verified", "user.not.completed.profile"])
     ->name("profile.complete");
 
 Route::post("/perfil/completar", [CompleteProfileController::class, "store"])
-    ->middleware(["verified", "user.not.completed.profile"]);
+    ->middleware(["auth", "verified", "user.not.completed.profile"]);
 
 Route::get("/perfil/editar", [ProfileController::class, "edit"])
-    ->middleware(["verified"])
+    ->middleware(["auth", "verified"])
     ->name("profile.edit");
 
 Route::post("/perfil/editar", [ProfileController::class, "update"])
-    ->middleware(["verified"])
+    ->middleware(["auth", "verified"])
     ->name("profile.update");
 
 Route::post("/perfil/deletar", [ProfileController::class, "destroy"])

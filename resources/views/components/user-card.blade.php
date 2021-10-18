@@ -27,6 +27,7 @@
 
     <div
         class="user-card__menu"
+        x-cloak
         x-show="showMenu"
         @click.outside="showMenu = false"
     >

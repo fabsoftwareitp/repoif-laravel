@@ -1,0 +1,26 @@
+.input-file__input {
+    display: none;
+}
+
+.input-file__label {
+    display: block;
+    padding: 11px 60px 11px 15px;
+    background: url(/img/icons/input-file-icon.svg) no-repeat calc(100% - 15px) center;
+    background-color: #282B30;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.input-file__filename,
+.input-file__placeholder {
+    display: block;
+    font-size: 1.4rem;
+}
+
+.input-file__filename {
+    color: #fff;
+}
+
+.input-file__placeholder {
+    color: #EFEFEF;
+}

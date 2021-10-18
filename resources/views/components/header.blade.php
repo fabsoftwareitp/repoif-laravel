@@ -4,7 +4,7 @@
             <x-logo></x-logo>
             <x-button
                 type="link"
-                href="#"
+                href="{{ route('project.create') }}"
                 text="Publicar"
                 :icon="asset('img/icons/publish-icon.svg')"
             ></x-button>

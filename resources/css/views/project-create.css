@@ -1,0 +1,8 @@
+.project-create {
+    display: flex;
+    justify-content: center;
+}
+
+.project-create .form {
+    width: 600px;
+}

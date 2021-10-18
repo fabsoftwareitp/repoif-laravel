@@ -27,10 +27,16 @@ html, body {
 }
 
 .container {
-    width: 100vw;
+    width: 100%;
     max-width: 1920px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -44,4 +50,8 @@ html, body {
 ::-webkit-scrollbar-thumb {
     background-color: #00EC7E;
     border-radius: 5px;
+}
+
+[x-cloak] {
+    display: none !important;
 }

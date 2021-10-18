@@ -3,7 +3,7 @@
         <x-button
             class="user-actions__publish-button"
             type="link"
-            href="#"
+            href="{{ route('project.create') }}"
             text="Publicar"
             :icon="asset('img/icons/publish-icon.svg')"
         ></x-button>
@@ -26,7 +26,7 @@
         <x-button
             class="user-actions__publish-button"
             type="link"
-            href="#"
+            href="{{ route('project.create') }}"
             text="Publicar"
             :icon="asset('img/icons/publish-icon.svg')"
         ></x-button>

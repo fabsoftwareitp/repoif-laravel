@@ -1,0 +1,17 @@
+.select {
+    appearance: none;
+    background: url(/img/icons/select-arrow-icon.svg) no-repeat calc(100% - 15px) center;
+    padding: 11px 40px 11px 15px;
+    width: 100%;
+    background-color: #282B30;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1.4rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.select__option {
+    background-color: #2E333A;
+}
