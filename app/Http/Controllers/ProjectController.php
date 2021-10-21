@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\DocumentProjectService;
+use App\Services\ImageProjectService;
+use App\Services\VideoProjectService;
+use App\Services\WebProjectService;
+use Illuminate\Http\Request;
+
 class ProjectController extends Controller
 {
     /**
@@ -22,5 +28,34 @@ class ProjectController extends Controller
     public function create()
     {
         return view('project.create');
+    }
+
+    /**
+     * Handle an incoming store project request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => ['required', 'string', 'max:100'],
+            'description' => ['nullable', 'string', 'max:1000'],
+            'type' => ['required', 'in:1,2,3,4'],
+            'source' => ['nullable', 'in:1,2']
+        ]);
+
+        $servicesByProjectType = [
+            '1' => new DocumentProjectService(),
+            '2' => new ImageProjectService(),
+            '3' => new VideoProjectService(),
+            '4' => new WebProjectService(),
+        ];
+
+        $projectService = $servicesByProjectType[$request->type];
+
+        return $projectService->store($request);
     }
 }

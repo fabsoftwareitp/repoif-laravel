@@ -23,6 +23,10 @@ Route::get("/projetos/publicar", [ProjectController::class, "create"])
     ->middleware(["auth", "verified"])
     ->name("project.create");
 
+Route::post("/projetos", [ProjectController::class, "store"])
+    ->middleware(["auth", "verified"])
+    ->name("project.store");
+
 
 Route::get("/perfil/completar", [CompleteProfileController::class, "create"])
     ->middleware(["auth", "verified", "user.not.completed.profile"])

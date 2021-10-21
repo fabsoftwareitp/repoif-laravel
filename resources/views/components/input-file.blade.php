@@ -25,14 +25,16 @@
     </label>
 </div>
 
-@push("additional")
-    <script defer>
-        function setFilename() {
-            const inputFile = document.querySelector("#{{ $inputName }}");
+@once
+    @push("additional")
+        <script>
+            function setFilename() {
+                const inputFile = document.querySelector("#{{ $inputName }}");
 
-            if (inputFile.files[0]) {
-                this.filename = inputFile.files[0].name;
+                if (inputFile.files[0]) {
+                    this.filename = inputFile.files[0].name;
+                }
             }
-        }
-    </script>
-@endpush
+        </script>
+    @endpush
+@endonce

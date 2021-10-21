@@ -69,28 +69,30 @@
     </div>
 </div>
 
-@push("additional")
-    <script defer>
-        function loadImage() {
-            const inputFile = document.querySelector("#input-file");
+@once
+    @push("additional")
+        <script>
+            function loadImage() {
+                const inputFile = document.querySelector("#input-file");
 
-            if (inputFile.files[0]) {
-                const reader = new FileReader();
+                if (inputFile.files[0]) {
+                    const reader = new FileReader();
 
-                reader.onload = e => {
-                    this.imageUrl = e.target.result;
+                    reader.onload = e => {
+                        this.imageUrl = e.target.result;
+                    }
+
+                    reader.readAsDataURL(inputFile.files[0]);
                 }
-
-                reader.readAsDataURL(inputFile.files[0]);
             }
-        }
 
-        function deleteImage() {
-            const inputFile = document.querySelector("#input-file");
-            inputFile.value = "";
+            function deleteImage() {
+                const inputFile = document.querySelector("#input-file");
+                inputFile.value = "";
 
-            this.imageUrl = null;
-            this.deletedImage = true;
-        }
-    </script>
-@endpush
+                this.imageUrl = null;
+                this.deletedImage = true;
+            }
+        </script>
+    @endpush
+@endonce

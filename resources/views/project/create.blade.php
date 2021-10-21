@@ -7,10 +7,10 @@
 >
     <main
         class="container project-create"
-        x-data="{ projectType: '1', sourceType: '1' }"
+        x-data="setProjectData()"
     >
         <x-form
-            action="#"
+            action="{{ route('project.store') }}"
             enctype="multipart/form-data"
             title="Publicar projeto"
         >
@@ -42,7 +42,7 @@
                     3 => 'Vídeo',
                     4 => 'Projeto web'
                 ]"
-                onSelectChange="projectType = $el.value; sourceType = '1';"
+                onSelectChange="projectType = $el.value"
             ></x-form-group>
 
             <template x-if="projectType === '1'">
@@ -94,7 +94,7 @@
             </template>
 
             <template x-if="projectType === '4'">
-                <div>
+                <div x-data="setSourceData()">
                     <x-form-group
                         component="select"
                         label="Origem do código-fonte"
@@ -120,7 +120,7 @@
                                 Extensões permitidas: <span class="form__info-highlight">.zip</span><br>
                                 Tamanho máximo: <span class="form__info-highlight">5 MB</span><br>
                                 Conteúdo suportado: <span class="form__info-highlight">Website estático (arquivos .html, .css, .js)</span><br>
-                                Observação: <span class="form__info-highlight">Deve conter um arquivo index.html</span>
+                                Observação: <span class="form__info-highlight">Deve conter um arquivo index.html na raiz do arquivo compactado</span>
                             </p>
                         </div>
                     </template>
@@ -135,7 +135,7 @@
 
                             <p class="form__info">
                                 Conteúdo suportado: <span class="form__info-highlight">Website estático (arquivos .html, .css, .js)</span><br>
-                                Observação: <span class="form__info-highlight">Deve conter um arquivo index.html</span>
+                                Observação: <span class="form__info-highlight">Deve conter um arquivo index.html na raiz do código-fonte do repositório</span>
                             </p>
                         </div>
                     </template>
@@ -149,4 +149,21 @@
             ></x-button>
         </x-form>
     </main>
+
+    @once
+        @push("additional")
+            <script>
+                function setProjectData() {
+                    const typeSelect = document.querySelector("#type");
+                    return { projectType: typeSelect.value || '1' };
+                }
+
+                function setSourceData() {
+                    const sourceSelect = document.querySelector("#source");
+                    return { sourceType: sourceSelect.value || '1' };
+                }
+            </script>
+        @endpush
+    @endonce
+
 </x-layout>

@@ -190,6 +190,9 @@ return [
         'current_password' => 'senha atual',
         'new_password' => 'nova senha',
         'photo' => 'foto',
+        'file' => 'arquivo',
+        'url' => 'link',
+        'type' => 'tipo',
     ],
 
 ];
