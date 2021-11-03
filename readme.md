@@ -1,64 +1,91 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# 1 Como executar o projeto
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+<p>As instruções dessa documentação assumem que o leitor possui conhecimento da tecnologia Git e possui a mesma instalada e configurada em sua máquina.</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p>Primeiramente, realize o download do código-fonte do projeto ou clone o repositório.</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 1.1 Requisitos
 
-## Learning Laravel
+- PHP ^8.0.12
+- Composer ^2.1.11
+- MySQL ^8.0.27
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 1.2 Configuração do PHP (arquivo "php.ini")
 
-## Laravel Sponsors
+<p>Extensões que precisam estar habilitadas:</p>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- curl
+- fileinfo
+- gd
+- mbstring
+- openssl
+- pdo_mysql
 
-### Premium Partners
+<p>Configurações adicionais necessárias:</p>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+<p>post_max_size = 8M</p>
+<p>upload_max_filesize = 6M</p>
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 1.3 Configuração das variáveis de ambiente (arquivo ".env")
 
-## Code of Conduct
+<p>Crie uma cópia do arquivo ".env.example" e renomeie a cópia para ".env".</p>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<p>Realize as configurações de conexão com o banco de dados e do e-mail de testes, conforme as instruções presentes no arquivo ".env" criado.</p>
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 1.4 Comandos a serem executados pelo terminal, na raiz do projeto
 
-## License
+### 1.4.1 Instalação das dependências do projeto
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<p>composer install</p>
+
+### 1.4.2 Criação das tabelas no banco de dados
+
+<p>php artisan migrate</p>
+
+### 1.4.3 Geração da chave de encriptação da aplicação
+
+<p>php artisan key:generate</p>
+
+### 1.4.4 Disponibilização do acesso aos arquivos públicos da aplicação
+
+<p>php artisan storage:link</p>
+
+### 1.4.5 Execução do projeto (ficará acessível em: "http://localhost:8000")
+
+<p>php artisan serve</p>
+
+
+
+
+# 2 Como contribuir com o projeto
+
+
+<p>Primeiramente, solicite ao proprietário Danilo a concessão do acesso como contribuidor do projeto.</p>
+
+
+## 2.1 Requisitos
+
+- Node.js ^16.13.0
+
+
+## 2.2 Instalação das dependências para desenvolvimento
+
+<p>Utilize o seguinte comando pelo terminal, na raiz do projeto:</p>
+
+<p>npm install</p>
+
+
+## 2.3 Gerenciamento dos assets do projeto
+
+<p>O projeto utiliza o pacote Laravel Mix para compilar e versionar os diversos arquivos .css referentes aos componentes e telas do repositório em um único arquivo "app.css", o qual será processado pelo navegador.</p>
+
+<p>Utilize o seguinte comando pelo terminal, na raiz do projeto, para ficar observando mudanças nos arquivos .css e realizar o processo de compilação e versionamento automaticamente:</p>
+
+<p>npm run watch</p>
+
+<p>Quando criar um novo arquivo .css ou houver falha durante o processo, será necessário cancelar o processo do comando e executá-lo novamente.</p>
