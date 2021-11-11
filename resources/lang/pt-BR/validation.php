@@ -193,6 +193,7 @@ return [
         'file' => 'arquivo',
         'url' => 'link',
         'type' => 'tipo',
+        'source' => 'origem',
     ],
 
 ];

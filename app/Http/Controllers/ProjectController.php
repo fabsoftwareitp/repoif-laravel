@@ -10,6 +10,18 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+    private $servicesByProjectType;
+
+    public function __construct()
+    {
+        $this->servicesByProjectType = [
+            '1' => new DocumentProjectService(),
+            '2' => new ImageProjectService(),
+            '3' => new VideoProjectService(),
+            '4' => new WebProjectService(),
+        ];
+    }
+
     /**
      * Display the main view with the projects.
      *
@@ -44,17 +56,9 @@ class ProjectController extends Controller
             'title' => ['required', 'string', 'max:100'],
             'description' => ['nullable', 'string', 'max:1000'],
             'type' => ['required', 'in:1,2,3,4'],
-            'source' => ['nullable', 'in:1,2']
         ]);
 
-        $servicesByProjectType = [
-            '1' => new DocumentProjectService(),
-            '2' => new ImageProjectService(),
-            '3' => new VideoProjectService(),
-            '4' => new WebProjectService(),
-        ];
-
-        $projectService = $servicesByProjectType[$request->type];
+        $projectService = $this->servicesByProjectType[$request->type];
 
         return $projectService->store($request);
     }
