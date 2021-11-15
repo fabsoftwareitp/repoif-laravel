@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Services\DocumentProjectService;
 use App\Services\ImageProjectService;
 use App\Services\VideoProjectService;
 use App\Services\WebProjectService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 
 class ProjectController extends Controller
 {
@@ -61,5 +65,28 @@ class ProjectController extends Controller
         $projectService = $this->servicesByProjectType[$request->type];
 
         return $projectService->store($request);
+    }
+
+    /**
+     * Destroy the project.
+     *
+     * @param  App\Models\Project $project
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Project $project)
+    {
+        abort_if($project->user_id !== Auth::id(), 403);
+
+        if ($project->path) {
+            Storage::delete($project->path);
+        }
+
+        if ($project->path_web) {
+            Storage::deleteDirectory($project->path_web);
+        }
+
+        $project->delete();
+
+        return redirect(URL::route('project.index'));
     }
 }

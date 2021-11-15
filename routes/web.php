@@ -27,6 +27,10 @@ Route::post("/projetos", [ProjectController::class, "store"])
     ->middleware(["auth", "verified"])
     ->name("project.store");
 
+Route::delete("/projetos/{project}", [ProjectController::class, "destroy"])
+    ->middleware(["auth", "verified"])
+    ->name("project.destroy");
+
 
 Route::get("/perfil/completar", [CompleteProfileController::class, "create"])
     ->middleware(["auth", "verified", "user.not.completed.profile"])
@@ -47,7 +51,7 @@ Route::post("/perfil/deletar", [ProfileController::class, "destroy"])
     ->middleware(["auth"])
     ->name("profile.destroy");
 
-Route::get("/perfil/{user}", [ProfileController::class, "show"])
+Route::get("/perfis/{user}", [ProfileController::class, "show"])
     ->name("profile.show");
 
 require __DIR__ . "/auth.php";
