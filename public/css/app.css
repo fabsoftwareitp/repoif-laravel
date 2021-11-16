@@ -1424,6 +1424,15 @@ label.image-input__photo-container {
     width: 600px;
 }
 
+.project-edit {
+    display: flex;
+    justify-content: center;
+}
+
+.project-edit .form {
+    width: 600px;
+}
+
 .register {
     display: flex;
     justify-content: center;

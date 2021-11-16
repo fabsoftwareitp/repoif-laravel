@@ -1,0 +1,8 @@
+.project-edit {
+    display: flex;
+    justify-content: center;
+}
+
+.project-edit .form {
+    width: 600px;
+}

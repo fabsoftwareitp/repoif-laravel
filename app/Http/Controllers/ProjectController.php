@@ -68,6 +68,19 @@ class ProjectController extends Controller
     }
 
     /**
+     * Display the edit project view.
+     *
+     * @param  App\Models\Project $project
+     * @return \Illuminate\View\View
+     */
+    public function edit(Project $project)
+    {
+        abort_if($project->user_id !== Auth::id(), 403);
+
+        return view('project.edit', ['project' => $project]);
+    }
+
+    /**
      * Destroy the project.
      *
      * @param  App\Models\Project $project
