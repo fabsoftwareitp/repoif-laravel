@@ -43,4 +43,39 @@ class ImageProjectService
 
         return redirect(URL::route('project.index'));
     }
+
+    public function update(Request $request, Project $project)
+    {
+        $request->validate([
+            'file' => ['nullable', 'file', 'mimes:png,jpg,jpge', 'max:5120'],
+        ]);
+
+        $requestFile = $request->file('file');
+
+        if ($requestFile) {
+            $deleted = Storage::delete($project->path);
+
+            if ($deleted) {
+                $pathToSaveFile = $requestFile->getRealPath() . '.jpg';
+
+                Image::make($requestFile)
+                    ->resize(1200, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($pathToSaveFile, 60);
+
+                $filePath = Storage::putFile('usuarios/' . $project->user_id . '/imagens', new File($pathToSaveFile));
+
+                if ($filePath) {
+                    $project->path = $filePath;
+                    $project->file_name = $requestFile->getClientOriginalName();
+                }
+            }
+        }
+
+        $project->title = $request->title;
+        $project->description = $request->description;
+        $project->save();
+
+        return redirect(URL::route('project.index'));
+    }
 }

@@ -3,7 +3,7 @@
     "label",
     "inputName",
     "inputType" => "text",
-    "inputValue",
+    "inputValue" => "",
     "inputPlaceholder" => "",
     "height" => "",
     "maxlength" => "",
@@ -22,14 +22,14 @@
                 id="{{ $inputName }}"
                 type="{{ $inputType }}"
                 name="{{ $inputName }}"
-                value="{{ $inputValue ?? old($inputName) }}"
+                value="{{ $inputValue ?: old($inputName) }}"
                 placeholder="{{ $inputPlaceholder }}"
             ></x-input>
         @elseif ($component === "text-area")
             <x-text-area
                 id="{{ $inputName }}"
                 name="{{ $inputName }}"
-                value="{{ $inputValue ?? old($inputName) }}"
+                value="{{ $inputValue ?: old($inputName) }}"
                 placeholder="{{ $inputPlaceholder }}"
                 height="{{ $height }}"
                 maxlength="{{ $maxlength }}"
@@ -39,7 +39,7 @@
                 id="{{ $inputName }}"
                 name="{{ $inputName }}"
                 :options="$options"
-                value="{{ $inputValue ?? old($inputName) }}"
+                value="{{ $inputValue ?: old($inputName) }}"
                 onSelectChange="{{ $onSelectChange }}"
             ></x-select>
         @elseif ($component === "input-file")

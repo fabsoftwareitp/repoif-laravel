@@ -10,7 +10,7 @@
         <option
             class="select__option"
             value="{{ $key }}"
-            {{ (old($name) == $key) || ($value && $value == $key) ? "selected" : "" }}
+            {{ (old($name) == $key) || ((! old($name)) && $value && $value == $key) ? "selected" : "" }}
         >{{ $optionValue }}</option>
     @endforeach
 </select>

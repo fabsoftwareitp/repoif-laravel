@@ -31,6 +31,10 @@ Route::get("/projetos/{project}/editar", [ProjectController::class, "edit"])
     ->middleware(["auth", "verified"])
     ->name("project.edit");
 
+Route::post("/projetos/{project}", [ProjectController::class, "update"])
+    ->middleware(["auth", "verified"])
+    ->name("project.update");
+
 Route::delete("/projetos/{project}", [ProjectController::class, "destroy"])
     ->middleware(["auth", "verified"])
     ->name("project.destroy");

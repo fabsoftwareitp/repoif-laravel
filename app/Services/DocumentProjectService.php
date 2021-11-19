@@ -35,4 +35,32 @@ class DocumentProjectService
 
         return redirect(URL::route('project.index'));
     }
+
+    public function update(Request $request, Project $project)
+    {
+        $request->validate([
+            'file' => ['nullable', 'file', 'mimes:pdf', 'max:5120'],
+        ]);
+
+        $requestFile = $request->file('file');
+
+        if ($requestFile) {
+            $deleted = Storage::delete($project->path);
+
+            if ($deleted) {
+                $filePath = Storage::putFile('usuarios/' . $project->user_id . '/documentos', $requestFile);
+
+                if ($filePath) {
+                    $project->path = $filePath;
+                    $project->file_name = $requestFile->getClientOriginalName();
+                }
+            }
+        }
+
+        $project->title = $request->title;
+        $project->description = $request->description;
+        $project->save();
+
+        return redirect(URL::route('project.index'));
+    }
 }

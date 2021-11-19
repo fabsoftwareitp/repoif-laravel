@@ -27,4 +27,18 @@ class VideoProjectService
 
         return redirect(URL::route('project.index'));
     }
+
+    public function update(Request $request, Project $project)
+    {
+        $request->validate([
+            'url' => ['required', 'string', 'regex:/^https:\/\/youtu\.be\/[^\/]+$/'],
+        ]);
+
+        $project->title = $request->title;
+        $project->description = $request->description;
+        $project->url = $request->url;
+        $project->save();
+
+        return redirect(URL::route('project.index'));
+    }
 }

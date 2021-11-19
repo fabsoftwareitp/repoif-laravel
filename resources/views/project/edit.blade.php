@@ -4,7 +4,7 @@
 >
     <main class="container project-edit">
         <x-form
-            action="#"
+            action="{{ route('project.update', ['project' => $project->id]) }}"
             enctype="multipart/form-data"
             title="Editar projeto"
         >

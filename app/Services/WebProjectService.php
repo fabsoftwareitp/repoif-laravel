@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class WebProjectService
@@ -25,5 +26,16 @@ class WebProjectService
         $webProjectService = $this->servicesByWebProjectSource[$request->source];
 
         return $webProjectService->store($request);
+    }
+
+    public function update(Request $request, Project $project)
+    {
+        $request->validate([
+            'source' => ['required', 'in:1,2'],
+        ]);
+
+        $webProjectService = $this->servicesByWebProjectSource[$request->source];
+
+        return $webProjectService->update($request, $project);
     }
 }

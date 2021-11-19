@@ -81,6 +81,29 @@ class ProjectController extends Controller
     }
 
     /**
+     * Handle an incoming update project request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Models\Project $project
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function update(Request $request, Project $project)
+    {
+        abort_if($project->user_id !== Auth::id(), 403);
+
+        $request->validate([
+            'title' => ['required', 'string', 'max:100'],
+            'description' => ['nullable', 'string', 'max:1000'],
+        ]);
+
+        $projectService = $this->servicesByProjectType[$project->type];
+
+        return $projectService->update($request, $project);
+    }
+
+    /**
      * Destroy the project.
      *
      * @param  App\Models\Project $project
