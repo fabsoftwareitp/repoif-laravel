@@ -3,8 +3,7 @@
 }
 
 .header__container {
-    padding-top: 22px;
-    padding-bottom: 22px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,6 +17,14 @@
 
 .header__publish-container .button {
     margin-left: 20px;
+}
+
+@media screen and (max-width: 1250px) {
+    .header__container {
+        height: auto;
+        padding-top: 21px;
+        padding-bottom: 21px;
+    }
 }
 
 @media screen and (max-width: 640px) {

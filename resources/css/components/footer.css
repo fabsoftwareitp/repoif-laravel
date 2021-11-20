@@ -14,6 +14,10 @@
     line-height: 0;
 }
 
+.footer__ifsp-logo {
+    height: 46px;
+}
+
 .footer__navbar {
     display: flex;
     list-style: none;
