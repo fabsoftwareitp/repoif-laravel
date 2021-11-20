@@ -9,7 +9,7 @@ class NumberFormatHelper
         return number_format($number, 0, ",", ".");
     }
 
-    public static function formatIntegerToShortForm(int $number): string
+    public static function formatIntegerToShortForm(int $number, bool $includePreposition = false): string
     {
         if ($number < 1e3) {
             return "$number";
@@ -29,8 +29,10 @@ class NumberFormatHelper
             $termination = "tri";
         }
 
+        $preposition = ($includePreposition && $number >= 1e6) ? "de" : "";
+
         $result = floor($division * 10) / 10;
-        $shortForm = str_replace(".", ",", "$result $termination");
+        $shortForm = str_replace(".", ",", "$result $termination $preposition");
 
         return $shortForm;
     }
