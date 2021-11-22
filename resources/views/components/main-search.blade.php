@@ -7,7 +7,7 @@
         <input
             class="main-search__input"
             name="pesquisa"
-            value="{{ request('pesquisa', '') }}"
+            value="{{ Request::query('pesquisa', '') }}"
             placeholder="Título, descrição ou autor"
         >
         <button
