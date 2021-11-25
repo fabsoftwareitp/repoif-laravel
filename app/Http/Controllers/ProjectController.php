@@ -37,6 +37,24 @@ class ProjectController extends Controller
     }
 
     /**
+     * Display the detailed project view.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function show(Request $request, Project $project)
+    {
+        $viewedProjects = $request->session()->get('viewed_projects', []);
+
+        if (! in_array($project->id, $viewedProjects)) {
+            $project->views += 1;
+            $project->save();
+            $request->session()->push('viewed_projects', $project->id);
+        }
+
+        return view('project.show', ['project' => $project]);
+    }
+
+    /**
      * Display the create project view.
      *
      * @return \Illuminate\View\View

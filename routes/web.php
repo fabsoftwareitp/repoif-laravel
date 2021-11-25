@@ -19,6 +19,9 @@ use App\Http\Controllers\ProfileController;
 Route::get("/", [ProjectController::class, "index"])
     ->name("project.index");
 
+Route::get("/projetos/{project}", [ProjectController::class, "show"])
+    ->name("project.show");
+
 Route::get("/projetos/publicar", [ProjectController::class, "create"])
     ->middleware(["auth", "verified"])
     ->name("project.create");

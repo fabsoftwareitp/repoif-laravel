@@ -9,7 +9,7 @@
         id="input-file"
         name="photo"
         type="file"
-        accept=".png, .jpg, .jpge"
+        accept=".png, .jpg, .jpeg"
         x-on:change="loadImage"
     >
     <input
@@ -58,7 +58,7 @@
 
         <template x-if="! imageUrl">
             <p class="image-input__info">
-                Extensões permitidas: <span class="image-input__info-highlight">.png, .jpg, .jpge</span><br>
+                Extensões permitidas: <span class="image-input__info-highlight">.png, .jpg, .jpeg</span><br>
                 Tamanho máximo: <span class="image-input__info-highlight">5 MB</span>
             </p>
         </template>

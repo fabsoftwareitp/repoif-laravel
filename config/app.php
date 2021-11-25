@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Intervention\Image\ImageServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -217,6 +218,7 @@ return [
         'Notification' => Illuminate\Support\Facades\Notification::class,
         'NumberFormatHelper' => App\Helpers\NumberFormatHelper::class,
         'Password' => Illuminate\Support\Facades\Password::class,
+        'ProjectHelper' => App\Helpers\ProjectHelper::class,
         'Queue' => Illuminate\Support\Facades\Queue::class,
         'RateLimiter' => Illuminate\Support\Facades\RateLimiter::class,
         'Redirect' => Illuminate\Support\Facades\Redirect::class,

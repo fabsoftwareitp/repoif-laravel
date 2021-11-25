@@ -15,7 +15,7 @@ class ImageProjectService
     public function store(Request $request)
     {
         $request->validate([
-            'file' => ['required', 'file', 'mimes:png,jpg,jpge', 'max:5120'],
+            'file' => ['required', 'file', 'mimes:png,jpg,jpeg', 'max:5120'],
         ]);
 
         $requestFile = $request->file('file');
@@ -47,7 +47,7 @@ class ImageProjectService
     public function update(Request $request, Project $project)
     {
         $request->validate([
-            'file' => ['nullable', 'file', 'mimes:png,jpg,jpge', 'max:5120'],
+            'file' => ['nullable', 'file', 'mimes:png,jpg,jpeg', 'max:5120'],
         ]);
 
         $requestFile = $request->file('file');

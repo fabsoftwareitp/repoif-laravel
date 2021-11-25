@@ -53,7 +53,7 @@ class ProfileController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'photo' => ['nullable', 'file', 'mimes:png,jpg,jpge', 'max:5120'],
+            'photo' => ['nullable', 'file', 'mimes:png,jpg,jpeg', 'max:5120'],
             'description' => ['nullable', 'string', 'max:200'],
             'deleted_image' => ['required', 'in:true,false'],
         ]);

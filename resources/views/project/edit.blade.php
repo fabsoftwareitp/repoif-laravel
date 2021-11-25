@@ -48,12 +48,12 @@
                     label="Arquivo"
                     inputName="file"
                     inputPlaceholder="Selecione a imagem referente ao projeto."
-                    accept=".png, .jpg, .jpge"
+                    accept=".png, .jpg, .jpeg"
                     filename="{{ $project->file_name }}"
                 ></x-form-group>
 
                 <p class="form__info">
-                    Extensões permitidas: <span class="form__info-highlight">.png, .jpg, .jpge</span><br>
+                    Extensões permitidas: <span class="form__info-highlight">.png, .jpg, .jpeg</span><br>
                     Tamanho máximo: <span class="form__info-highlight">5 MB</span>
                 </p>
             @elseif ($project->type === 3)

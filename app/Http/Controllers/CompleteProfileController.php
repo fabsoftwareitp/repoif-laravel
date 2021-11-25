@@ -33,7 +33,7 @@ class CompleteProfileController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'photo' => ['nullable', 'file', 'mimes:png,jpg,jpge', 'max:5120'],
+            'photo' => ['nullable', 'file', 'mimes:png,jpg,jpeg', 'max:5120'],
             'description' => ['nullable', 'string', 'max:200'],
         ]);
 
