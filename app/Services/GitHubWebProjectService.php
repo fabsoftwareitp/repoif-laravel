@@ -13,7 +13,7 @@ class GitHubWebProjectService
     public function store(Request $request)
     {
         $request->validate([
-            'url' => ['required', 'string', 'regex:/^https:\/\/github\.com\/[^\/]+\/[^\/]+$/'],
+            'url' => ['required', 'string', 'max:255', 'regex:/^https:\/\/github\.com\/[^\/]+\/[^\/]+$/'],
         ]);
 
         $userId =  Auth::id();
@@ -32,7 +32,7 @@ class GitHubWebProjectService
     public function update(Request $request, Project $project)
     {
         $request->validate([
-            'url' => ['required', 'string', 'regex:/^https:\/\/github\.com\/[^\/]+\/[^\/]+$/'],
+            'url' => ['required', 'string', 'max:255', 'regex:/^https:\/\/github\.com\/[^\/]+\/[^\/]+$/'],
         ]);
 
         if ($project->path_web) {

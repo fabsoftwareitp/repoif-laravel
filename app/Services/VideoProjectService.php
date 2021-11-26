@@ -12,7 +12,7 @@ class VideoProjectService
     public function store(Request $request)
     {
         $request->validate([
-            'url' => ['required', 'string', 'regex:/^https:\/\/youtu\.be\/[^\/]+$/'],
+            'url' => ['required', 'string', 'max:255', 'regex:/^https:\/\/youtu\.be\/[^\/]+$/'],
         ]);
 
         $userId =  Auth::id();
@@ -31,7 +31,7 @@ class VideoProjectService
     public function update(Request $request, Project $project)
     {
         $request->validate([
-            'url' => ['required', 'string', 'regex:/^https:\/\/youtu\.be\/[^\/]+$/'],
+            'url' => ['required', 'string', 'max:255', 'regex:/^https:\/\/youtu\.be\/[^\/]+$/'],
         ]);
 
         $project->title = $request->title;

@@ -36,7 +36,7 @@ class ImageProjectService
                 'description' => $request->description,
                 'type' => $request->type,
                 'path' => $filePath,
-                'file_name' => $requestFile->getClientOriginalName(),
+                'file_name' => substr($requestFile->getClientOriginalName(), 0, 255),
                 'user_id' => $userId,
             ]);
         }
@@ -67,7 +67,7 @@ class ImageProjectService
 
                 if ($filePath) {
                     $project->path = $filePath;
-                    $project->file_name = $requestFile->getClientOriginalName();
+                    $project->file_name = substr($requestFile->getClientOriginalName(), 0, 255);
                 }
             }
         }
