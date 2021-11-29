@@ -31,7 +31,7 @@ class ImageProjectService
         $filePath = Storage::putFile('usuarios/' . $userId . '/imagens', new File($pathToSaveFile));
 
         if ($filePath) {
-            Project::create([
+            $project = Project::create([
                 'title' => $request->title,
                 'description' => $request->description,
                 'type' => $request->type,
@@ -41,7 +41,7 @@ class ImageProjectService
             ]);
         }
 
-        return redirect(URL::route('project.index'));
+        return redirect(URL::route('project.show', ['project' => $project->id]));
     }
 
     public function update(Request $request, Project $project)
@@ -76,6 +76,6 @@ class ImageProjectService
         $project->description = $request->description;
         $project->save();
 
-        return redirect(URL::route('project.index'));
+        return redirect(URL::route('project.show', ['project' => $project->id]));
     }
 }

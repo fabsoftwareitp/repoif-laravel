@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Crawler;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\File;
@@ -20,12 +21,14 @@ class ProfileController extends Controller
      */
     public function show(Request $request, User $user)
     {
-        $viewedProfiles = $request->session()->get('viewed_profiles', []);
+        if (! Crawler::isCrawler()) {
+            $viewedProfiles = $request->session()->get('viewed_profiles', []);
 
-        if (! in_array($user->id, $viewedProfiles)) {
-            $user->profile_views += 1;
-            $user->save();
-            $request->session()->push('viewed_profiles', $user->id);
+            if (! in_array($user->id, $viewedProfiles)) {
+                $user->profile_views += 1;
+                $user->save();
+                $request->session()->push('viewed_profiles', $user->id);
+            }
         }
 
         return view('profile.show', ['user' => $user]);

@@ -18,7 +18,7 @@ class GitHubWebProjectService
 
         $userId =  Auth::id();
 
-        Project::create([
+        $project = Project::create([
             'title' => $request->title,
             'description' => $request->description,
             'type' => $request->type,
@@ -26,7 +26,7 @@ class GitHubWebProjectService
             'user_id' => $userId,
         ]);
 
-        return redirect(URL::route('project.index'));
+        return redirect(URL::route('project.show', ['project' => $project->id]));
     }
 
     public function update(Request $request, Project $project)
@@ -48,6 +48,6 @@ class GitHubWebProjectService
         $project->url = $request->url;
         $project->save();
 
-        return redirect(URL::route('project.index'));
+        return redirect(URL::route('project.show', ['project' => $project->id]));
     }
 }

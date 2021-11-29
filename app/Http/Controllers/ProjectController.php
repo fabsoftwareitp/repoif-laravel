@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Crawler;
 use App\Models\Project;
 use App\Services\DocumentProjectService;
 use App\Services\ImageProjectService;
@@ -43,12 +44,14 @@ class ProjectController extends Controller
      */
     public function show(Request $request, Project $project)
     {
-        $viewedProjects = $request->session()->get('viewed_projects', []);
+        if (! Crawler::isCrawler()) {
+            $viewedProjects = $request->session()->get('viewed_projects', []);
 
-        if (! in_array($project->id, $viewedProjects)) {
-            $project->views += 1;
-            $project->save();
-            $request->session()->push('viewed_projects', $project->id);
+            if (! in_array($project->id, $viewedProjects)) {
+                $project->views += 1;
+                $project->save();
+                $request->session()->push('viewed_projects', $project->id);
+            }
         }
 
         return view('project.show', ['project' => $project]);

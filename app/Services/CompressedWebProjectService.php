@@ -35,7 +35,7 @@ class CompressedWebProjectService
             $zipHandler->close();
 
             if ($hasExtracted) {
-                Project::create([
+                $project = Project::create([
                     'title' => $request->title,
                     'description' => $request->description,
                     'type' => $request->type,
@@ -47,7 +47,7 @@ class CompressedWebProjectService
             }
         }
 
-        return redirect(URL::route('project.index'));
+        return redirect(URL::route('project.show', ['project' => $project->id]));
     }
 
     public function update(Request $request, Project $project)
@@ -92,6 +92,6 @@ class CompressedWebProjectService
         $project->url = null;
         $project->save();
 
-        return redirect(URL::route('project.index'));
+        return redirect(URL::route('project.show', ['project' => $project->id]));
     }
 }

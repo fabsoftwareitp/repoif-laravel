@@ -23,7 +23,7 @@ class DocumentProjectService
         $filePath = Storage::putFile('usuarios/' . $userId . '/documentos', $requestFile);
 
         if ($filePath) {
-            Project::create([
+            $project = Project::create([
                 'title' => $request->title,
                 'description' => $request->description,
                 'type' => $request->type,
@@ -33,7 +33,7 @@ class DocumentProjectService
             ]);
         }
 
-        return redirect(URL::route('project.index'));
+        return redirect(URL::route('project.show', ['project' => $project->id]));
     }
 
     public function update(Request $request, Project $project)
@@ -61,6 +61,6 @@ class DocumentProjectService
         $project->description = $request->description;
         $project->save();
 
-        return redirect(URL::route('project.index'));
+        return redirect(URL::route('project.show', ['project' => $project->id]));
     }
 }
