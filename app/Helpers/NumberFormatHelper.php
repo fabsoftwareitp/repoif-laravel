@@ -31,7 +31,7 @@ class NumberFormatHelper
 
         $preposition = ($includePreposition && $number >= 1e6) ? "de" : "";
 
-        $result = floor($division * 10) / 10;
+        $result = ($division < 10) ? (floor($division * 10) / 10) : (floor($division));
         $shortForm = str_replace(".", ",", "$result $termination $preposition");
 
         return $shortForm;

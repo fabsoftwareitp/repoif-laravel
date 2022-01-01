@@ -34,7 +34,14 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('project.index');
+        $projects = Project::with([
+            'user' => function ($query) {
+                $query->withCount('projects');
+            }
+        ])->paginate(perPage: 20, pageName: "pagina")
+            ->withQueryString();
+
+        return view('project.index', ['projects' => $projects]);
     }
 
     /**

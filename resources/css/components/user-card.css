@@ -15,6 +15,10 @@
     background-color: #3D424A;
 }
 
+.user-card__photo-container {
+    line-height: 0;
+}
+
 .user-card__photo {
     width: 40px;
     height: 40px;
@@ -32,6 +36,7 @@
 .user-card__menu {
     width: 200px;
     position: absolute;
+    z-index: 999;
     right: 0;
     bottom: 0;
     transform: translateY(100%);

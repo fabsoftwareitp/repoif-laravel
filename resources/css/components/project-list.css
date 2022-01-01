@@ -1,0 +1,180 @@
+.project-list__published-total {
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 16px;
+    color: #EFEFEF;
+}
+
+.project-list__published-total-highlight {
+    color: #00EC7E;
+}
+
+.project-list__card-grid {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 15px;
+}
+
+.project-list__card {
+    position: relative;
+    background-color: #3D424A;
+    border-radius: 10px;
+}
+
+.project-list__card-link {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.project-list__card-image-aspect-ratio-helper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 55.55555555555556%;
+}
+
+.project-list__card-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+}
+
+.project-list__card-thumbnail-icon {
+    height: 70%;
+}
+
+.project-list__card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.project-list__card-content {
+    padding: 10px 15px 15px 15px;
+    background-color: #373C43;
+}
+
+.project-list__card-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 18px;
+    color: #fff;
+}
+
+.project-list__card-date {
+    margin-top: 3px;
+    display: block;
+    font-size: 1.2rem;
+    line-height: 14px;
+    color: #EFEFEF;
+}
+
+.project-list__card-author {
+    margin-top: 10px;
+    width: min-content;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+    text-decoration: none;
+}
+
+.project-list__card-author-photo-container {
+    line-height: 0;
+}
+
+.project-list__card-author-photo {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.project-list__card-author-info {
+    min-width: 0;
+    margin-left: 5px;
+}
+
+.project-list__card-author-name {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 14px;
+    color: #00EC7E;
+}
+
+.project-list__card-author:hover .project-list__card-author-name {
+    text-decoration: underline;
+}
+
+.project-list__card-author-projects-count {
+    display: block;
+    font-size: 1.1rem;
+    line-height: 13px;
+    color: #EFEFEF;
+}
+
+.project-list__card-footer {
+    padding: 0 15px 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 10px 10px;
+}
+
+.project-list__card-stats {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project-list__card-stats-info {
+    margin-top: 8px;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.project-list__card-stats-info svg {
+    height: 16px;
+}
+
+.project-list__card-stats-info svg *:not([fill=none]) {
+    fill: #fff;
+}
+
+.project-list__card-stats-info svg *[stroke] {
+    stroke: #fff;
+}
+
+.project-list__card-stats-info-data {
+    margin-left: 5px;
+    font-size: 1.4rem;
+    line-height: 15px;
+    color: #fff;
+}
+
+.project-list__card-project-type-icon {
+    height: 20px;
+    margin-top: 8px;
+}
+
+@media screen and (max-width: 400px) {
+    .project-list__card-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
