@@ -37,10 +37,3 @@
 .modal__close-button:hover {
     background-color: #40464E;
 }
-
-.modal__message {
-    margin-top: 15px;
-    font-size: 1.4rem;
-    color: #FF4D58;
-    line-height: 20px;
-}

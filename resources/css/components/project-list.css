@@ -5,10 +5,6 @@
     color: #EFEFEF;
 }
 
-.project-list__published-total-highlight {
-    color: #00EC7E;
-}
-
 .project-list__card-grid {
     margin-top: 15px;
     display: grid;

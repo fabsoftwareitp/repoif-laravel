@@ -89,6 +89,13 @@
     font-size: 1.4rem;
 }
 
+.profile-card__delete-account-message {
+    margin-top: 15px;
+    font-size: 1.4rem;
+    color: #FF4D58;
+    line-height: 20px;
+}
+
 .profile-card__status {
     margin-top: 20px;
     font-size: 1.4rem;
@@ -119,13 +126,13 @@
 }
 
 @media screen and (max-width: 510px) {
-    .profile-card__actions .button {
+    .profile-card__actions > .button {
         margin-top: 20px;
         margin-left: 0;
         width: 100%;
     }
 
-    .profile-card__actions .button:first-child {
+    .profile-card__actions > .button:first-child {
         margin-top: 0;
     }
 }

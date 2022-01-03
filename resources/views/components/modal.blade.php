@@ -1,4 +1,4 @@
-@props(["message", "buttonRoute", "onButtonCloseClick"])
+@props(["onButtonCloseClick"])
 
 <div
     class="modal"
@@ -10,20 +10,9 @@
             type="button"
             @click="{{ $onButtonCloseClick }}"
         >
-            <img src="{{ asset('img/icons/close-icon.svg') }}" alt="">
+            <img src="{{ asset('img/icons/close-icon.svg') }}" alt="Ícone de fechar modal">
         </button>
 
-        <p class="modal__message">{{ $message }}</p>
-
-        <x-form
-            class="form--no-style"
-            action="{{ $buttonRoute }}"
-        >
-            <x-button
-                class="button--red button--full-width"
-                text="Excluir conta"
-                :svg="file_get_contents(public_path('img/icons/delete-account-icon.svg'))"
-            ></x-button>
-        </x-form>
+        {{ $slot }}
     </div>
 </div>

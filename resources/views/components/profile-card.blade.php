@@ -61,11 +61,20 @@
                 ></x-button>
 
                 <template x-if="showModal">
-                    <x-modal
-                        onButtonCloseClick="showModal = false"
-                        message="Tudo vinculado a você será excluído do repositório (projetos, comentários, likes, dados cadastrais, etc.). Deseja mesmo excluir sua conta?"
-                        buttonRoute="{{ route('profile.destroy') }}"
-                    ></x-modal>
+                    <x-modal onButtonCloseClick="showModal = false">
+                        <p class="profile-card__delete-account-message">Tudo vinculado a você será excluído do repositório (projetos, comentários, likes, dados cadastrais, etc.). Deseja mesmo excluir sua conta?</p>
+
+                        <x-form
+                            class="form--no-style"
+                            action="{{ route('profile.destroy') }}"
+                        >
+                            <x-button
+                                class="button--red button--full-width"
+                                text="Excluir conta"
+                                :svg="file_get_contents(public_path('img/icons/delete-account-icon.svg'))"
+                            ></x-button>
+                        </x-form>
+                    </x-modal>
                 </template>
             </div>
         @endif

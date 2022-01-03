@@ -2,13 +2,8 @@
 
 <div class="project-list">
     <p class="project-list__published-total">
-        {{ NumberFormatHelper::formatIntegerToShortForm($projects->total(), true) }}
-        {{ $projects->total() === 1 ? " projeto publicado" : " projetos publicados" }}
-
-        @if (Request::query('pesquisa', ''))
-            {{ $projects->total() === 1 ? " relacionado a " : " relacionados a " }}
-            <span class="project-list__published-total-highlight">"{{ Request::query('pesquisa', '') }}"</span>
-        @endif
+        {{ $projects->total() > 0 ? NumberFormatHelper::formatIntegerToShortForm($projects->total(), true) : "Nenhum" }}
+        {{ in_array($projects->total(), [0, 1]) ? " projeto publicado" : " projetos publicados" }}
     </p>
 
     @if ($projects->count() > 0)
@@ -79,8 +74,8 @@
                                 <div class="project-list__card-author-info">
                                     <span class="project-list__card-author-name ellipsis">{{ $project->user->name }}</span>
                                     <span class="project-list__card-author-projects-count ellipsis">
-                                        {{ NumberFormatHelper::formatIntegerToShortForm($project->user->projects_count, true) }}
-                                        {{ $project->user->projects_count === 1 ? " projeto publicado" : " projetos publicados" }}
+                                        {{ $project->user->projects_count > 0 ? NumberFormatHelper::formatIntegerToShortForm($project->user->projects_count, true) : "Nenhum" }}
+                                        {{ in_array($project->user->projects_count, [0, 1]) ? " projeto publicado" : " projetos publicados" }}
                                     </span>
                                 </div>
                             </a>
