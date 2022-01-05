@@ -1219,6 +1219,15 @@ label.image-input__photo-container {
     }
 }
 
+.project-list {
+    width: 100%;
+    max-width: 1485px;
+}
+
+.project-list .pagination {
+    margin-top: 30px;
+}
+
 .project-list__published-total {
     font-size: 1.4rem;
     font-weight: bold;
@@ -1394,15 +1403,6 @@ label.image-input__photo-container {
     .project-list__card-grid {
         grid-template-columns: minmax(0, 1fr);
     }
-}
-
-.project-view {
-    width: 100%;
-    max-width: 1485px;
-}
-
-.project-view .pagination {
-    margin-top: 30px;
 }
 
 .select {

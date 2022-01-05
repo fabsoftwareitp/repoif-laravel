@@ -6,6 +6,6 @@
     :pageOgImageUrl="asset('img/logos/logo-repoif-og.png')"
 >
     <main class="container project-index">
-        <x-project-view :projects="$projects"></x-project-view>
+        <x-project-list :projects="$projects"></x-project-list>
     </main>
 </x-layout>

@@ -126,4 +126,6 @@
             @endforeach
         </div>
     @endif
+
+    <x-pagination :paginator="$projects"></x-pagination>
 </div>
