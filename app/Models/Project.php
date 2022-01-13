@@ -36,4 +36,14 @@ class Project extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'projects_likes');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(ProjectComment::class);
+    }
 }

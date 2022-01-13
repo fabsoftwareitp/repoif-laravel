@@ -6,6 +6,7 @@ use Crawler;
 use App\Models\Project;
 use App\Services\DocumentProjectService;
 use App\Services\ImageProjectService;
+use App\Services\ProjectListService;
 use App\Services\VideoProjectService;
 use App\Services\WebProjectService;
 use Illuminate\Http\Request;
@@ -32,14 +33,9 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $projects = Project::with([
-            'user' => function ($query) {
-                $query->withCount('projects');
-            }
-        ])->paginate(perPage: 20, pageName: "pagina")
-            ->withQueryString();
+        $projects = ProjectListService::getProjects($request);
 
         return view('project.index', ['projects' => $projects]);
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Crawler;
+use App\Services\ProjectListService;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\File;
@@ -31,7 +32,9 @@ class ProfileController extends Controller
             }
         }
 
-        return view('profile.show', ['user' => $user]);
+        $projects = ProjectListService::getProjects($request, $user->id);
+
+        return view('profile.show', ['user' => $user, 'projects' => $projects]);
     }
 
     /**

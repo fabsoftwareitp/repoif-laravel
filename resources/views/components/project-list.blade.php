@@ -1,10 +1,14 @@
-@props(["projects" => [], "showAuthor" => true])
+@props(["projects" => [], "showAuthor" => true, "route" => ""])
 
 <div class="project-list">
-    <p class="project-list__published-total">
-        {{ $projects->total() > 0 ? NumberFormatHelper::formatIntegerToShortForm($projects->total(), true) : "Nenhum" }}
-        {{ in_array($projects->total(), [0, 1]) ? " projeto publicado" : " projetos publicados" }}
-    </p>
+    <div class="project-list__header">
+        <p class="project-list__published-total">
+            {{ $projects->total() > 0 ? NumberFormatHelper::formatIntegerToShortForm($projects->total(), true) : "Nenhum" }}
+            {{ in_array($projects->total(), [0, 1]) ? " projeto publicado" : " projetos publicados" }}
+        </p>
+
+        <x-project-list-filters route="{{ $route }}"></x-project-list-filters>
+    </div>
 
     @if ($projects->count() > 0)
         <div class="project-list__card-grid">
@@ -89,11 +93,11 @@
                             </div>
                             <div class="project-list__card-stats-info">
                                 @php echo file_get_contents(public_path('img/icons/likes-icon.svg')) @endphp
-                                <span class="project-list__card-stats-info-data">{{ NumberFormatHelper::formatIntegerToShortForm(0) }}</span>
+                                <span class="project-list__card-stats-info-data">{{ NumberFormatHelper::formatIntegerToShortForm($project->likes_count) }}</span>
                             </div>
                             <div class="project-list__card-stats-info">
                                 @php echo file_get_contents(public_path('img/icons/comments-icon.svg')) @endphp
-                                <span class="project-list__card-stats-info-data">{{ NumberFormatHelper::formatIntegerToShortForm(0) }}</span>
+                                <span class="project-list__card-stats-info-data">{{ NumberFormatHelper::formatIntegerToShortForm($project->comments_count) }}</span>
                             </div>
                         </div>
                         @if ($project->type === 1)

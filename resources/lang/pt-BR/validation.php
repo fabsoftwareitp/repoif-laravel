@@ -34,7 +34,7 @@ return [
     'current_password'     => 'A senha atual está incorreta.',
     'date'                 => 'O campo :attribute não é uma data válida.',
     'date_equals'          => 'O campo :attribute deve ser uma data igual a :date.',
-    'date_format'          => 'O campo :attribute não corresponde ao formato :format.',
+    'date_format'          => 'O campo :attribute não corresponde ao formato dd/mm/aaaa.',
     'different'            => 'Os campos :attribute e :other devem ser diferentes.',
     'digits'               => 'O campo :attribute deve ter :digits dígitos.',
     'digits_between'       => 'O campo :attribute deve ter entre :min e :max dígitos.',
@@ -194,6 +194,9 @@ return [
         'url' => 'link',
         'type' => 'tipo',
         'source' => 'origem',
+        'tipo_projeto' => 'tipo de projeto',
+        'classificacao' => 'classificação',
+        'ordenacao' => 'ordenação',
     ],
 
 ];

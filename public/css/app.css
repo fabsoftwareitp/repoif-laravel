@@ -946,24 +946,25 @@ label.image-input__photo-container {
 }
 
 .modal {
-    padding: 0 20px;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 1000;
+    position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    z-index: 1000;
     background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
 }
 
 .modal__container {
+    margin: auto;
     display: flex;
     flex-direction: column;
     padding: 15px;
-    max-width: 400px;
+    width: 410px;
+    max-width: 100%;
     background-color: #2E333A;
     border-radius: 10px;
 }
@@ -1219,6 +1220,34 @@ label.image-input__photo-container {
     }
 }
 
+.project-list-filters .select,
+.project-list-filters .input {
+    background-color: #3D424A;
+}
+
+.project-list-filters .select__option {
+    background-color: #2A2F36;
+}
+
+.project-list-filters__between-period-text {
+    margin: 5px 0;
+    font-size: 1.4rem;
+    line-height: 16px;
+    color: #fff;
+    text-align: center;
+}
+
+@media screen and (max-width: 640px) {
+    .project-list-filters > .button {
+        width: auto;
+        padding: 5px 10px;
+    }
+
+    .project-list-filters > .button .button__text {
+        display: none;
+    }
+}
+
 .project-list {
     width: 100%;
     max-width: 1485px;
@@ -1228,7 +1257,14 @@ label.image-input__photo-container {
     margin-top: 30px;
 }
 
+.project-list__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .project-list__published-total {
+    margin-right: 30px;
     font-size: 1.4rem;
     font-weight: bold;
     line-height: 16px;
@@ -1672,6 +1708,11 @@ label.image-input__photo-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-self: flex-start;
+}
+
+.profile-show .project-list {
+    margin-top: 30px;
 }
 
 .project-create {

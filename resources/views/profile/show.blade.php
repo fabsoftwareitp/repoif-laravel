@@ -13,5 +13,10 @@
 >
     <main class="container profile-show">
         <x-profile-card :user="$user"></x-profile-card>
+        <x-project-list
+            :projects="$projects"
+            :showAuthor="false"
+            route="{{ route('profile.show', ['user' => $user->id]) }}"
+        ></x-project-list>
     </main>
 </x-layout>

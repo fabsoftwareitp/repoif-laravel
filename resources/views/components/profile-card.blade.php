@@ -60,7 +60,10 @@
                     onClick="showModal = true"
                 ></x-button>
 
-                <template x-if="showModal">
+                <div
+                    x-cloak
+                    x-show="showModal"
+                >
                     <x-modal onButtonCloseClick="showModal = false">
                         <p class="profile-card__delete-account-message">Tudo vinculado a você será excluído do repositório (projetos, comentários, likes, dados cadastrais, etc.). Deseja mesmo excluir sua conta?</p>
 
@@ -75,7 +78,7 @@
                             ></x-button>
                         </x-form>
                     </x-modal>
-                </template>
+                </div>
             </div>
         @endif
 

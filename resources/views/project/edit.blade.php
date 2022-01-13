@@ -9,6 +9,7 @@
             title="Editar projeto"
         >
             <x-form-group
+                class="form-group--first"
                 component="text-area"
                 label="Título"
                 inputName="title"

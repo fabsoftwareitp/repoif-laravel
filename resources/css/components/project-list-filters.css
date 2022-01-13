@@ -1,0 +1,27 @@
+.project-list-filters .select,
+.project-list-filters .input {
+    background-color: #3D424A;
+}
+
+.project-list-filters .select__option {
+    background-color: #2A2F36;
+}
+
+.project-list-filters__between-period-text {
+    margin: 5px 0;
+    font-size: 1.4rem;
+    line-height: 16px;
+    color: #fff;
+    text-align: center;
+}
+
+@media screen and (max-width: 640px) {
+    .project-list-filters > .button {
+        width: auto;
+        padding: 5px 10px;
+    }
+
+    .project-list-filters > .button .button__text {
+        display: none;
+    }
+}

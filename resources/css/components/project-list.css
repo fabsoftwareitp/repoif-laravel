@@ -7,7 +7,14 @@
     margin-top: 30px;
 }
 
+.project-list__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .project-list__published-total {
+    margin-right: 30px;
     font-size: 1.4rem;
     font-weight: bold;
     line-height: 16px;

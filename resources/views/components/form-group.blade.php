@@ -1,6 +1,6 @@
 @props([
     "component" => "input",
-    "label",
+    "label" => "",
     "inputName",
     "inputType" => "text",
     "inputValue" => "",
@@ -14,7 +14,9 @@
 ])
 
 <div {{ $attributes->merge(["class" => "form-group"]) }}>
-    <label class="form-group__input-label" for="{{ $inputName }}">{!! $label !!}</label>
+    @if ($label)
+        <label class="form-group__input-label" for="{{ $inputName }}">{!! $label !!}</label>
+    @endif
 
     <div class="form-group__input-group">
         @if ($component === "input")
