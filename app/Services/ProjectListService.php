@@ -11,20 +11,29 @@ class ProjectListService
     public static function getProjects(Request $request, ?int $authorId = null)
     {
         $request->validate([
+            'pesquisa' => ['nullable', 'string', 'max:1000'],
             'tipo_projeto' => ['nullable', 'in:todos,documentos,imagens,videos,projetos-web'],
             'classificacao' => ['nullable', 'in:nenhuma,mais-visualizados,mais-avaliados'],
             'ordenacao' => ['nullable', 'in:mais-recentes,mais-antigos'],
             'data_inicial' => ['nullable', 'required_with:data_final', 'date_format:d/m/Y'],
-            'data_final' => ['nullable', 'required_with:data_inicial', 'date_format:d/m/Y', 'after:data_inicial']
+            'data_final' => ['nullable', 'required_with:data_inicial', 'date_format:d/m/Y', 'after_or_equal:data_inicial']
         ]);
 
-        $projects = $authorId
-            ? Project::where('user_id', $authorId)
-            : Project::with([
+        $projects = Project::withCount(['likes', 'comments']);
+
+        if ($authorId) {
+            $projects = $projects->where('user_id', $authorId);
+        } else {
+            $projects = $projects->with([
                 'user' => function ($query) {
                     $query->withCount('projects');
                 }
             ]);
+
+            if ($request->pesquisa) {
+                $projects = $projects->join('users', 'users.id', '=', 'projects.user_id');
+            }
+        }
 
         $projects = match ($request->tipo_projeto) {
             'documentos' => $projects->where('type', 1),
@@ -33,6 +42,28 @@ class ProjectListService
             'projetos-web' => $projects->where('type', 4),
             default => $projects
         };
+
+        if ($request->data_inicial && $request->data_final) {
+            $initialDate = Carbon::createFromFormat('d/m/Y', $request->data_inicial)
+                ->startOfDay()->toDateTimeString();
+            $finalDate = Carbon::createFromFormat('d/m/Y', $request->data_final)
+                ->endOfDay()->toDateTimeString();
+
+            $projects = $projects->whereBetween('created_at', [$initialDate, $finalDate]);
+        }
+
+        if ($request->pesquisa) {
+            $projects = $projects->where(function ($query) use ($request, $authorId) {
+                $search = ['%' . mb_strtoupper($request->pesquisa) . '%'];
+
+                $query->whereRaw("UPPER(projects.title) LIKE ?", $search)
+                    ->orWhereRaw("UPPER(projects.description) LIKE ?", $search);
+
+                if (! $authorId) {
+                    $query->orWhereRaw("UPPER(users.name) LIKE ?", $search);
+                }
+            });
+        }
 
         $projects = match ($request->classificacao) {
             'mais-visualizados' => $projects->orderBy('views', 'desc'),
@@ -46,15 +77,7 @@ class ProjectListService
             default => $projects->latest()
         };
 
-        if ($request->data_inicial && $request->data_final) {
-            $initialDate = Carbon::createFromFormat('d/m/Y', $request->data_inicial)->toDateString();
-            $finalDate = Carbon::createFromFormat('d/m/Y', $request->data_final)->toDateString();
-
-            $projects = $projects->whereBetween('created_at', [$initialDate, $finalDate]);
-        }
-
-        $projects = $projects->withCount(['likes', 'comments'])
-            ->paginate(perPage: 20, pageName: 'pagina')
+        $projects = $projects->paginate(perPage: 20, pageName: 'pagina')
             ->withQueryString();
 
         return $projects;

@@ -25,6 +25,14 @@
         padding-top: 21px;
         padding-bottom: 21px;
     }
+
+    .header__container .input-search {
+        order: 3;
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 }
 
 @media screen and (max-width: 640px) {

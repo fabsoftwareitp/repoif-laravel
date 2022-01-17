@@ -32,6 +32,10 @@
                 method="GET"
                 action="{{ $route }}"
             >
+                @if (Request::query('pesquisa', ''))
+                    <input type="hidden" name="pesquisa" value="{{ Request::query('pesquisa', '') }}">
+                @endif
+
                 <x-form-group
                     component="select"
                     label="Tipo de projeto"

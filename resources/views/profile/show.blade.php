@@ -13,6 +13,13 @@
 >
     <main class="container profile-show">
         <x-profile-card :user="$user"></x-profile-card>
+
+        <x-input-search
+            class="input-search__input-container--outlined"
+            route="{{ route('profile.show', ['user' => $user->id]) }}"
+            inputPlaceholder="Título ou descrição"
+        ></x-input-search>
+
         <x-project-list
             :projects="$projects"
             :showAuthor="false"

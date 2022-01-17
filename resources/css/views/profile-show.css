@@ -5,6 +5,7 @@
     align-self: flex-start;
 }
 
-.profile-show .project-list {
+.profile-show .project-list,
+.profile-show .input-search {
     margin-top: 30px;
 }

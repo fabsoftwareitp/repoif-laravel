@@ -9,7 +9,11 @@
                 :icon="asset('img/icons/publish-icon.svg')"
             ></x-button>
         </div>
-        <x-main-search></x-main-search>
+        <x-input-search
+            route="{{ route('project.index') }}"
+            inputPlaceholder="Título, descrição ou autor"
+            :displaySearch="! Route::is('profile.show')"
+        ></x-input-search>
         <x-user-actions></x-user-actions>
     </div>
 </header>
