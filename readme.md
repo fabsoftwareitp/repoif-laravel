@@ -59,6 +59,10 @@
 
 <p>php artisan serve</p>
 
+### 1.4.6 Processamento do envio de e-mails em segundo plano (executar comando em outra aba do terminal)
+
+<p>php artisan queue:work</p>
+
 
 
 

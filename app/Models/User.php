@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Notifications\Auth\ResetPasswordQueued;
+use App\Notifications\Auth\VerifyEmailQueued;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -47,5 +49,26 @@ class User extends Authenticatable implements MustVerifyEmail
     public function projects()
     {
         return $this->hasMany(Project::class);
+    }
+
+    /**
+     * Send the email verification notification.
+     *
+     * @return void
+     */
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new VerifyEmailQueued());
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordQueued($token));
     }
 }
