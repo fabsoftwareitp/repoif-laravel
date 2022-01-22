@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class UserNotCompletedProfileMiddleware
 {
@@ -17,8 +17,12 @@ class UserNotCompletedProfileMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user()->photo_path || $request->user()->description) {
-            return redirect()->intended(RouteServiceProvider::HOME);
+        if (
+            $request->user()->photo_path ||
+            $request->user()->description ||
+            $request->user()->completed_profile
+        ) {
+            return redirect()->intended(URL::route('profile.show', ['user' => $request->user()->id]));
         }
 
         return $next($request);

@@ -26,6 +26,6 @@ class VerifyEmailController extends Controller
             event(new Verified($request->user()));
         }
 
-        return redirect(URL::route("profile.complete"));
+        return redirect(URL::route('profile.complete'));
     }
 }

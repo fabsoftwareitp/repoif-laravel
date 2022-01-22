@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('description')->nullable();
             $table->string('photo_path')->nullable();
             $table->unsignedBigInteger('profile_views')->default(0);
+            $table->boolean('completed_profile')->default(false);
             $table->timestamp('email_verified_at')->nullable();
         });
     }

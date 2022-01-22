@@ -20,6 +20,14 @@
             ></x-form-group>
 
             <x-form-group
+                label="E-mail institucional"
+                inputName="email"
+                inputType="email"
+                inputPlaceholder="usuario@aluno.ifsp.edu.br"
+                inputValue="{{ $user->email }}"
+            ></x-form-group>
+
+            <x-form-group
                 component="text-area"
                 label="Descrição"
                 inputName="description"

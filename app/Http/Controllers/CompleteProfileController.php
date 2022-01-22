@@ -55,8 +55,9 @@ class CompleteProfileController extends Controller
         }
 
         $user->description = $request->description;
+        $user->completed_profile = true;
         $user->save();
 
-        return redirect(URL::route('project.index'));
+        return redirect()->intended(URL::route('profile.show', ['user' => $user->id]));
     }
 }

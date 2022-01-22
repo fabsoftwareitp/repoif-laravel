@@ -44,18 +44,18 @@ Route::delete("/projetos/{project}", [ProjectController::class, "destroy"])
 
 
 Route::get("/perfil/completar", [CompleteProfileController::class, "create"])
-    ->middleware(["auth", "verified", "user.not.completed.profile"])
+    ->middleware(["auth", "user.not.completed.profile"])
     ->name("profile.complete");
 
 Route::post("/perfil/completar", [CompleteProfileController::class, "store"])
-    ->middleware(["auth", "verified", "user.not.completed.profile"]);
+    ->middleware(["auth", "user.not.completed.profile"]);
 
 Route::get("/perfil/editar", [ProfileController::class, "edit"])
-    ->middleware(["auth", "verified"])
+    ->middleware(["auth"])
     ->name("profile.edit");
 
 Route::post("/perfil/editar", [ProfileController::class, "update"])
-    ->middleware(["auth", "verified"])
+    ->middleware(["auth"])
     ->name("profile.update");
 
 Route::post("/perfil/deletar", [ProfileController::class, "destroy"])

@@ -39,7 +39,7 @@ class ChangePasswordController extends Controller
             'password' => Hash::make($request->new_password),
         ])->save();
 
-        return redirect(URL::route('profile.show', ['user' => Auth::user()]))
+        return redirect(URL::route('profile.show', ['user' => Auth::id()]))
             ->with('status', 'Senha alterada com sucesso.');
     }
 }
