@@ -45,8 +45,15 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function show(Request $request, Project $project)
+    public function show(Request $request, $projectId)
     {
+        $project = Project::with([
+            'user' => function ($query) {
+                $query->withCount('projects');
+            }
+        ])->withCount(['likes'])
+            ->findOrFail($projectId);
+
         if (! Crawler::isCrawler()) {
             $viewedProjects = $request->session()->get('viewed_projects', []);
 

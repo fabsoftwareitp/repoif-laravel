@@ -1,0 +1,19 @@
+.project-show {
+    display: flex;
+    justify-content: center;
+    align-self: flex-start;
+    max-width: 1171px;
+}
+
+.read-limited {
+    max-height: 66px;
+    overflow-y: hidden;
+}
+
+.read-button {
+    display: none;
+}
+
+.read-button--show {
+    display: initial;
+}

@@ -78,8 +78,8 @@
                                 <div class="project-list__card-author-info">
                                     <span class="project-list__card-author-name ellipsis">{{ $project->user->name }}</span>
                                     <span class="project-list__card-author-projects-count ellipsis">
-                                        {{ $project->user->projects_count > 0 ? NumberFormatHelper::formatIntegerToShortForm($project->user->projects_count, true) : "Nenhum" }}
-                                        {{ in_array($project->user->projects_count, [0, 1]) ? " projeto publicado" : " projetos publicados" }}
+                                        {{ NumberFormatHelper::formatIntegerToShortForm($project->user->projects_count, true) }}
+                                        {{ $project->user->projects_count === 1 ? " projeto publicado" : " projetos publicados" }}
                                     </span>
                                 </div>
                             </a>
