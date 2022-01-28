@@ -24,7 +24,12 @@
 }
 
 @media screen and (max-width: 355px) {
-    .access-links,
+    .access-links {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 290px) {
     .actions {
         margin-top: 20px;
     }

@@ -1,5 +1,5 @@
 <header class="header">
-    <div class="container header__container">
+    <div class="container {{ Auth::check() ? 'header__container-user-logged' : 'header__container' }}">
         <div class="header__publish-container">
             <x-logo></x-logo>
             <x-button

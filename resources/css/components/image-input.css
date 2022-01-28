@@ -45,12 +45,12 @@ label.image-input__photo-container {
     background-color: #F93743;
 }
 
-.image-input__delete-photo-icon {
+.image-input__delete-photo-btn svg {
     width: 18px;
     height: 20px;
 }
 
-.image-input__delete-photo-icon * {
+.image-input__delete-photo-btn svg * {
     fill: #fff;
     stroke: #fff;
 }

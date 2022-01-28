@@ -8,9 +8,6 @@
                 <a class="footer__navbar-link" href="#">Sobre</a>
             </li>
             <li class="footer__navbar-item">
-                <a class="footer__navbar-link" href="#">Como funciona</a>
-            </li>
-            <li class="footer__navbar-item">
                 <a class="footer__navbar-link" href="#">Termos de uso</a>
             </li>
             <li class="footer__navbar-item">

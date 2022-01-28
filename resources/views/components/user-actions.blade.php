@@ -30,7 +30,6 @@
             text="Publicar"
             :icon="asset('img/icons/publish-icon.svg')"
         ></x-button>
-        <x-notifications></x-notifications>
         <x-user-card></x-user-card>
     </div>
 @endguest

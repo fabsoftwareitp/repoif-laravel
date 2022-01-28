@@ -549,7 +549,7 @@ a.button {
     color: #00EC7E;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 640px) {
     .footer__container {
         flex-direction: column;
         padding-top: 20px;
@@ -573,7 +573,7 @@ a.button {
     }
 }
 
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 380px) {
     .footer__navbar {
         flex-direction: column;
         align-items: center;
@@ -669,7 +669,8 @@ a.button {
     background-color: #222429;
 }
 
-.header__container {
+.header__container,
+.header__container-user-logged {
     height: 80px;
     display: flex;
     justify-content: space-between;
@@ -702,6 +703,22 @@ a.button {
     }
 }
 
+@media screen and (max-width: 1060px) {
+    .header__container-user-logged {
+        height: auto;
+        padding-top: 21px;
+        padding-bottom: 21px;
+    }
+
+    .header__container-user-logged .input-search {
+        order: 3;
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
 @media screen and (max-width: 640px) {
     .header__publish-container .button {
         display: none;
@@ -719,6 +736,12 @@ a.button {
 
 @media screen and (max-width: 355px) {
     .header__container {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    .header__container-user-logged {
         flex-direction: column;
     }
 }
@@ -770,12 +793,12 @@ label.image-input__photo-container {
     background-color: #F93743;
 }
 
-.image-input__delete-photo-icon {
+.image-input__delete-photo-btn svg {
     width: 18px;
     height: 20px;
 }
 
-.image-input__delete-photo-icon * {
+.image-input__delete-photo-btn svg * {
     fill: #fff;
     stroke: #fff;
 }
@@ -991,22 +1014,6 @@ label.image-input__photo-container {
 
 .modal__close-button:hover {
     background-color: #40464E;
-}
-
-.notifications {
-    margin-right: 20px;
-}
-
-.notifications__button {
-    padding: 5px;
-    background-color: transparent;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.notifications__button:hover {
-    background-color: #3D424A;
 }
 
 .pagination {
@@ -1674,7 +1681,12 @@ label.image-input__photo-container {
 }
 
 @media screen and (max-width: 355px) {
-    .access-links,
+    .access-links {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 290px) {
     .actions {
         margin-top: 20px;
     }
