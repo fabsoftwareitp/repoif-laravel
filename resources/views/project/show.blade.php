@@ -15,7 +15,10 @@
     :pageOgImageUrl="$pageOgImageUrl"
 >
     <main class="container project-show">
-        <x-project-view :project="$project"></x-project-view>
+        <x-project-view
+            :project="$project"
+            :userLikedProject="$userLikedProject"
+        ></x-project-view>
     </main>
 
     @once

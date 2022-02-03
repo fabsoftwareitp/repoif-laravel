@@ -50,11 +50,6 @@ label.image-input__photo-container {
     height: 20px;
 }
 
-.image-input__delete-photo-btn svg * {
-    fill: #fff;
-    stroke: #fff;
-}
-
 .image-input__label {
     margin-top: 5px;
     font-size: 1.6rem;

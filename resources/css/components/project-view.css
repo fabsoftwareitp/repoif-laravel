@@ -7,7 +7,7 @@
     position: relative;
     width: 100%;
     height: 0;
-    padding-top: 55.55555555555556%;
+    padding-top: 56.25%;
 }
 
 .project-view__media-container {
@@ -19,6 +19,59 @@
     left: 0;
     border-radius: 10px;
     background-color: #3D424A;
+}
+
+.project-view__media-container--web {
+    background-color: #fff;
+}
+
+.project-view__media-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.project-view__media-object,
+.project-view__media-iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.project-view__media-link {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 0;
+    background-color: #00EC7E;
+    border-radius: 5px 0 10px 0;
+    box-shadow: -3px 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.project-view__media-link:hover {
+    background-color: #00FF88;
+}
+
+.project-view__media-link--hide {
+    display: none;
+}
+
+.project-view__media-object-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-view__media-object-fallback-image {
+    height: 70%;
 }
 
 .project-view__header {
@@ -72,8 +125,10 @@
 .project-view__author-actions {
     margin-top: 20px;
     display: flex;
+    flex-wrap: wrap-reverse;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .project-view__author {
@@ -119,6 +174,33 @@
     color: #EFEFEF;
 }
 
+.project-view__actions-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-view__actions-container > .form {
+    display: flex;
+}
+
+.project-view__actions-container > .form > .button {
+    margin-top: 0;
+}
+
+.project-view__actions-container > .form > .button svg,
+.project-view__actions-container > .button svg {
+    width: 22px;
+    height: 25px;
+}
+
+.project-view__delete-project-message {
+    margin-top: 15px;
+    font-size: 1.6rem;
+    color: #FF4D58;
+    line-height: 22px;
+}
+
 .project-view__description-container {
     margin-top: 20px;
 }
@@ -142,4 +224,13 @@
 
 .project-view__description-read-button:hover {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 319px) {
+    .project-view__actions,
+    .project-view__actions-container > .form,
+    .project-view__actions-container > .form > .button,
+    .project-view__actions-container > .button {
+        flex-grow: 1;
+    }
 }

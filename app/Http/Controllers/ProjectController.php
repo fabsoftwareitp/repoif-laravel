@@ -54,6 +54,10 @@ class ProjectController extends Controller
         ])->withCount(['likes'])
             ->findOrFail($projectId);
 
+        $userLikedProject = $project->likes()
+            ->where('user_id', Auth::id())
+            ->exists();
+
         if (! Crawler::isCrawler()) {
             $viewedProjects = $request->session()->get('viewed_projects', []);
 
@@ -64,7 +68,10 @@ class ProjectController extends Controller
             }
         }
 
-        return view('project.show', ['project' => $project]);
+        return view('project.show', [
+            'project' => $project,
+            'userLikedProject' => $userLikedProject
+        ]);
     }
 
     /**
@@ -155,5 +162,18 @@ class ProjectController extends Controller
         $project->delete();
 
         return redirect(URL::route('project.index'));
+    }
+
+    /**
+     * Like or deslike the project.
+     *
+     * @param  App\Models\Project $project
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function like(Project $project)
+    {
+        $project->likes()->toggle(Auth::id());
+
+        return back();
     }
 }

@@ -24,4 +24,14 @@ class ProjectHelper
 
         return null;
     }
+
+    public static function getVideoProjectEmbeddedUrl(string $videoUrl): string
+    {
+        return str_replace("https://youtu.be/", "https://www.youtube.com/embed/", $videoUrl);
+    }
+
+    public static function getGitHubProjectEmbeddedUrl(string $gitHubUrl): string
+    {
+        return str_replace("https://github.com/", "https://combinatronics.com/", $gitHubUrl) . "/master/index.html";
+    }
 }

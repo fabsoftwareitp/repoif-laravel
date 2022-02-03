@@ -42,6 +42,10 @@ Route::delete("/projetos/{project}", [ProjectController::class, "destroy"])
     ->middleware(["auth", "verified"])
     ->name("project.destroy");
 
+Route::post("/projetos/{project}/like", [ProjectController::class, "like"])
+    ->middleware(["auth", "verified"])
+    ->name("project.like");
+
 
 Route::get("/perfil/completar", [CompleteProfileController::class, "create"])
     ->middleware(["auth", "user.not.completed.profile"])
