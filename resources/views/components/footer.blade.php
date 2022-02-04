@@ -5,7 +5,7 @@
         </a>
         <ul class="footer__navbar">
             <li class="footer__navbar-item">
-                <a class="footer__navbar-link" href="#">Sobre</a>
+                <a class="footer__navbar-link" href="{{ route('static-page.about') }}">Sobre</a>
             </li>
             <li class="footer__navbar-item">
                 <a class="footer__navbar-link" href="#">Termos de uso</a>

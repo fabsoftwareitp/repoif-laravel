@@ -1,0 +1,51 @@
+.static-page-about {
+    display: flex;
+    justify-content: center;
+}
+
+.static-page-about__container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: #373C43;
+    border-radius: 10px;
+}
+
+.static-page-about__title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 22px;
+    color: #fff;
+    text-align: center;
+}
+
+.static-page-about__text {
+    margin-top: 20px;
+    font-size: 1.6rem;
+    color: #fff;
+    line-height: 22px;
+}
+
+.static-page-about__list {
+    margin-top: 20px;
+    list-style-position: inside;
+}
+
+.static-page-about__list-item {
+    margin-top: 10px;
+    font-size: 1.6rem;
+    color: #fff;
+    line-height: 22px;
+}
+
+.static-page-about__list-item:first-child {
+    margin-top: 0;
+}
+
+.static-page-about__link {
+    color: #00EC7E;
+}
+
+.static-page-about__link:hover {
+    color: #00FF88;
+}

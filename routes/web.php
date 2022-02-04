@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CompleteProfileController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StaticPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,5 +69,9 @@ Route::post("/perfil/deletar", [ProfileController::class, "destroy"])
 
 Route::get("/perfis/{user}", [ProfileController::class, "show"])
     ->name("profile.show");
+
+
+Route::get("/sobre", [StaticPageController::class, "about"])
+    ->name("static-page.about");
 
 require __DIR__ . "/auth.php";
