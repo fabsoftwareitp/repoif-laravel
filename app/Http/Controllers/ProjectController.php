@@ -167,12 +167,25 @@ class ProjectController extends Controller
     /**
      * Like or deslike the project.
      *
-     * @param  App\Models\Project $project
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Models\Project $project
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function like(Project $project)
+    public function like(Request $request, Project $project)
     {
-        $project->likes()->toggle(Auth::id());
+        $result = $project->likes()->toggle(Auth::id());
+
+        if (
+            count($result['attached']) > 0 &&
+            $project->user_id !== Auth::id()
+        ) {
+            $likedProjects = $request->session()->get('liked_projects', []);
+
+            if (! in_array($project->id, $likedProjects)) {
+                $project->user->sendUserLikedProjectNotification($project);
+                $request->session()->push('liked_projects', $project->id);
+            }
+        }
 
         return back();
     }

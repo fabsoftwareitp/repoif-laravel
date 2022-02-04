@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Notifications\Auth\ResetPasswordQueued;
 use App\Notifications\Auth\VerifyEmailQueued;
+use App\Notifications\UserLikedProjectQueued;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -72,5 +73,16 @@ class User extends Authenticatable implements MustVerifyEmail
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordQueued($token));
+    }
+
+    /**
+     * Send the user liked project notification.
+     *
+     * @param  \App\Models\Project  $project
+     * @return void
+     */
+    public function sendUserLikedProjectNotification($project)
+    {
+        $this->notify(new UserLikedProjectQueued($project));
     }
 }
