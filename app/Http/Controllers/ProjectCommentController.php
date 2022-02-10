@@ -24,7 +24,7 @@ class ProjectCommentController extends Controller
             'related_user' => ['nullable', 'exists:users,id']
         ]);
 
-        ProjectComment::create([
+        $projectComment = ProjectComment::create([
             'content' => $request->comment,
             'project_id' => $project->id,
             'user_id' => Auth::id(),
@@ -32,7 +32,7 @@ class ProjectCommentController extends Controller
         ]);
 
         return redirect(URL::route('project.show', ['project' => $project->id]))
-            ->withFragment('comentarios');
+            ->withFragment('comentario-' . $projectComment->id);
     }
 
     /**
@@ -54,8 +54,7 @@ class ProjectCommentController extends Controller
         $projectComment->content = $request->comment;
         $projectComment->save();
 
-        return redirect(URL::route('project.show', ['project' => $project->id]))
-            ->withFragment('comentarios');
+        return back()->withFragment('comentario-' . $projectComment->id);
     }
 
     /**
@@ -71,8 +70,7 @@ class ProjectCommentController extends Controller
 
         $projectComment->delete();
 
-        return redirect(URL::route('project.show', ['project' => $project->id]))
-            ->withFragment('comentarios');
+        return back()->withFragment('comentarios');
     }
 
     /**
@@ -98,7 +96,6 @@ class ProjectCommentController extends Controller
             }
         }
 
-        return redirect(URL::route('project.show', ['project' => $project->id]))
-            ->withFragment('comentarios');
+        return back()->withFragment('comentario-' . $projectComment->id);
     }
 }
