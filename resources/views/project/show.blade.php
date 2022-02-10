@@ -19,6 +19,11 @@
             :project="$project"
             :userLikedProject="$userLikedProject"
         ></x-project-view>
+
+        <x-project-comment-list
+            :project="$project"
+            :comments="$comments"
+        ></x-project-comment-list>
     </main>
 
     @once

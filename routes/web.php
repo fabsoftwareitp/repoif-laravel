@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CompleteProfileController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectCommentController;
 use App\Http\Controllers\StaticPageController;
 
 /*
@@ -46,6 +47,23 @@ Route::delete("/projetos/{project}", [ProjectController::class, "destroy"])
 Route::post("/projetos/{project}/like", [ProjectController::class, "like"])
     ->middleware(["auth", "verified"])
     ->name("project.like");
+
+
+Route::post("/projetos/{project}/comentarios", [ProjectCommentController::class, "create"])
+    ->middleware(["auth", "verified"])
+    ->name("project-comment.create");
+
+Route::put("/projetos/{project}/comentarios/{projectComment}", [ProjectCommentController::class, "update"])
+    ->middleware(["auth", "verified"])
+    ->name("project-comment.update");
+
+Route::delete("/projetos/{project}/comentarios/{projectComment}", [ProjectCommentController::class, "destroy"])
+    ->middleware(["auth", "verified"])
+    ->name("project-comment.destroy");
+
+Route::post("/projetos/{project}/comentarios/{projectComment}/like", [ProjectCommentController::class, "like"])
+    ->middleware(["auth", "verified"])
+    ->name("project-comment.like");
 
 
 Route::get("/perfil/completar", [CompleteProfileController::class, "create"])

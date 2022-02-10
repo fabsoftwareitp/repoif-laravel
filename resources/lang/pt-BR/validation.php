@@ -197,6 +197,7 @@ return [
         'tipo_projeto' => 'tipo de projeto',
         'classificacao' => 'classificação',
         'ordenacao' => 'ordenação',
+        'comment' => 'comentário',
     ],
 
 ];
