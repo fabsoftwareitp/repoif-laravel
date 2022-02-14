@@ -31,8 +31,24 @@ class ProjectCommentController extends Controller
             'replied_to_user_id' => $request->related_user
         ]);
 
-        return redirect(URL::route('project.show', ['project' => $project->id]))
+        $redirect = redirect(URL::route('project.show', ['project' => $project->id]))
             ->withFragment('comentario-' . $projectComment->id);
+
+        if (
+            $projectComment->replied_to_user_id &&
+            $projectComment->replied_to_user_id != Auth::id()
+        ) {
+            $projectComment->related_user->sendUserRepliedCommentNotification($project, $projectComment, $redirect->getTargetUrl());
+        }
+
+        if (
+            $project->user_id != Auth::id() &&
+            $project->user_id != $projectComment->replied_to_user_id
+        ) {
+            $project->user->sendUserCommentedNotification($project, $projectComment, $redirect->getTargetUrl());
+        }
+
+        return $redirect;
     }
 
     /**
@@ -85,6 +101,8 @@ class ProjectCommentController extends Controller
     {
         $result = $projectComment->likes()->toggle(Auth::id());
 
+        $redirect = back()->withFragment('comentario-' . $projectComment->id);
+
         if (
             count($result['attached']) > 0 &&
             $projectComment->user_id !== Auth::id()
@@ -92,10 +110,11 @@ class ProjectCommentController extends Controller
             $likedProjectsComments = $request->session()->get('liked_projects_comments', []);
 
             if (! in_array($projectComment->id, $likedProjectsComments)) {
+                $projectComment->user->sendUserLikedCommentNotification($project, $projectComment, $redirect->getTargetUrl());
                 $request->session()->push('liked_projects_comments', $projectComment->id);
             }
         }
 
-        return back()->withFragment('comentario-' . $projectComment->id);
+        return $redirect;
     }
 }

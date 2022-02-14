@@ -68,16 +68,8 @@ class ProjectController extends Controller
 
         $comments = ProjectComment::with(['user', 'related_user', 'current_user_liked'])
             ->withCount(['likes'])
-            ->where('project_id', $project->id);
-
-        if (Auth::check()) {
-            $comments = $comments->orderByRaw(
-                '(user_id = ? or replied_to_user_id = ?) desc',
-                [Auth::id(), Auth::id()]
-            );
-        }
-
-        $comments = $comments->latest()
+            ->where('project_id', $project->id)
+            ->latest()
             ->paginate(perPage: 20, pageName: 'pagina')
             ->fragment('comentarios')
             ->withQueryString();
