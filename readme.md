@@ -8,9 +8,9 @@
 
 ## 1.1 Requisitos
 
-- PHP ^8.0.12
-- Composer ^2.1.11
-- MySQL ^8.0.27
+- PHP ^8.1.3
+- Composer ^2.2.6
+- MySQL ^8.0.28
 
 
 ## 1.2 Configuração do PHP (arquivo "php.ini")
@@ -74,7 +74,7 @@
 
 ## 2.1 Requisitos
 
-- Node.js ^16.13.0
+- Node.js ^17.5.0
 
 
 ## 2.2 Instalação das dependências para desenvolvimento
