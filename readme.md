@@ -15,14 +15,23 @@
 
 ## 1.2 Configuração do PHP (arquivo "php.ini")
 
-<p>Extensões que precisam estar habilitadas:</p>
+<p>Extensões que precisam estar instaladas e habilitadas:</p>
 
+- bcmath
+- ctype
 - curl
+- dom
 - fileinfo
 - gd
+- hash
+- json
 - mbstring
 - openssl
+- pdo
 - pdo_mysql
+- tokenizer
+- xml
+- zip
 
 <p>Configurações adicionais necessárias:</p>
 
@@ -42,6 +51,10 @@
 ### 1.4.1 Instalação das dependências do projeto
 
 <p>composer install</p>
+
+<p>Se houver algum erro referente a versões das dependências, talvez seja necessário atualizá-las, com o seguinte comando:</p>
+
+<p>composer update</p>
 
 ### 1.4.2 Criação das tabelas no banco de dados
 
@@ -83,6 +96,10 @@
 
 <p>npm install</p>
 
+<p>Se houver algum erro referente a versões das dependências, talvez seja necessário atualizá-las, com o seguinte comando:</p>
+
+<p>npm update</p>
+
 
 ## 2.3 Gerenciamento dos assets do projeto
 
@@ -92,4 +109,4 @@
 
 <p>npm run watch</p>
 
-<p>Quando criar um novo arquivo .css ou houver falha durante o processo, será necessário cancelar o processo do comando e executá-lo novamente.</p>
+<p>Quando criar ou deletar um arquivo .css, ou houver falha durante o processo, será necessário cancelar o processo do comando e executá-lo novamente.</p>
